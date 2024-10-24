@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-const Trip = require('../models/trip.model');
+const Trip = require('./trip.model');
 
-const UpcomingTripSchema = new mongoose.Schema({
+const PastTripSchema = new mongoose.Schema({
     trip: { type: mongoose.Schema.Types.ObjectId, ref:'Trip' ,required: true },
     timePeriod: {
         startDate: { type: Date, default: Date.now, required: true },
@@ -9,6 +9,6 @@ const UpcomingTripSchema = new mongoose.Schema({
     }
 });
 
-const UpcomingTrip = mongoose.model('UpcomingTrip', UpcomingTripSchema);
+const PastTrip = mongoose.model('PastTrip', PastTripSchema);
 
-module.exports = UpcomingTrip;
+module.exports = PastTrip;
