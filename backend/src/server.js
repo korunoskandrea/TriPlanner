@@ -1,7 +1,14 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-require('dotenv').config();
+import express from 'express';
+import mongoose from 'mongoose';
+import cors from 'cors';
+import { config } from 'dotenv';
+
+import placeRoutes from './Place/place.router.js';
+import {fetchJwt} from "./common/middlewares/fetch_jwt.js";
+import {mustBeAuthenticated, mustNotBeAuthenticated} from "./common/middlewares/guards/auth.guard.js";
+import tripRouters from "./Trip/trip.router.js";
+import userRoutes from "./User/user.routes.js";
+config();
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -9,12 +16,11 @@ const port = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
-const userRoutes = require('./User/user.routes');
-const upcomingTripRoutes = require('./Upcoming_Trip/upcoming_trip.router');
-const tripRoutes = require('./Trip/trip.router');
-const placeRoutes = require('./Place/place.router');
-const pastTripRoutes = require('./Past_Trip/past_trip.router');
+app.use(fetchJwt);
 
+app.use('/api/places', placeRoutes);
+app.use('/api/trips',[mustBeAuthenticated], tripRouters);
+app.use('/api/user',[mustBeAuthenticated], userRoutes);
 // connect to MongoDb
 mongoose.connect(process.env.MONGODB_URI, {});
 mongoose.connection.on('connected', () => {

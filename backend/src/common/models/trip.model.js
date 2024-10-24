@@ -1,11 +1,13 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const TripSchema = new mongoose.Schema({
     locationName: { type: String, required: true },
     images: [String],
     sightseeingInterests: [String],
+    startDate: { type: Date, required: true },
+    endDate: { type: Date, required: true },
 });
 
 const Trip = mongoose.model('Trip', TripSchema);
 
-module.exports = Trip;
+export default Trip;
