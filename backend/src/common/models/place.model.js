@@ -6,4 +6,4 @@ const PlaceSchema = new mongoose.Schema({
 
 const Place = mongoose.model('Place', PlaceSchema);
 
-module.exports = Trip;
+module.exports = Place;

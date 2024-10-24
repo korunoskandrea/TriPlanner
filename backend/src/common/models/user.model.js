@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-const Trip = require('../models/trip.model');
-const UpcomingTrip = require('./upcomingTrip.model');
-const PastTrip = require('./pastTrip.model');
+const Trip = require('./trip.model');
+const UpcomingTrip = require('./upcoming_trip.model');
+const PastTrip = require('./past_trip.model');
 
 const UserSchema = new mongoose.Schema({
     name: { type: String, required: true },
