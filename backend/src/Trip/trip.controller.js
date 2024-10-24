@@ -62,3 +62,23 @@ export const deleteTrip = async (req, res) => {
         res.status(400).json({error: error.message});
     }
 }
+
+export const getUpcomingTrips = async (req, res) => {
+    try {
+        const currentDate = new Date();
+        const upcomingTrips = await TripModel.find({ startDate: { $gt: currentDate } });
+        res.status(200).json(upcomingTrips);
+    } catch (error) {
+        res.status(400).json({error: error.message});
+    }
+}
+
+export const getPastTrips = async (req, res) => {
+    try {
+        const currentDate = new Date();
+        const pastTrips = await TripModel.find({ endDate: { $lt: currentDate } });
+        res.status(200).json(pastTrips);
+    } catch (error) {
+        res.status(400).json({error: error.message});
+    }
+}
