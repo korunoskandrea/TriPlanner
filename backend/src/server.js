@@ -8,6 +8,7 @@ import {fetchJwt} from "./common/middlewares/fetch_jwt.js";
 import {mustBeAuthenticated, mustNotBeAuthenticated} from "./common/middlewares/guards/auth.guard.js";
 import tripRouters from "./Trip/trip.router.js";
 import userRoutes from "./User/user.routes.js";
+import authRoutes from "./Auth/auth.routes.js";
 config();
 
 const app = express();
@@ -21,6 +22,7 @@ app.use(fetchJwt);
 app.use('/api/places', placeRoutes);
 app.use('/api/trips',[mustBeAuthenticated], tripRouters);
 app.use('/api/user',[mustBeAuthenticated], userRoutes);
+app.use('/api/auth', [mustNotBeAuthenticated],authRoutes);
 // connect to MongoDb
 mongoose.connect(process.env.MONGODB_URI, {});
 mongoose.connection.on('connected', () => {
