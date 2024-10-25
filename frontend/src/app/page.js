@@ -17,36 +17,38 @@ export default function Home() {
   return (
       <>
           <div className="container">
-            <h1>Plan Your Trip</h1>
+              <h1>Plan Your Trip</h1>
 
-            <TripTypeSelectorComponent
-                tripType={tripType}
-                groupSize={groupSize}
-                onTripTypeChange={(e) => setTripType(e.target.value)}
-                onGroupSizeChange={(e) => setGroupSize(e.target.value)}
-            />
+              <TripTypeSelectorComponent
+                  tripType={tripType}
+                  groupSize={groupSize}
+                  onTripTypeChange={(e) => setTripType(e.target.value)}
+                  onGroupSizeChange={(e) => setGroupSize(e.target.value)}
+              />
 
-            <LocationInput
-                location={location}
-                onLocationChange={setLocation}
-            />
+              <LocationInput
+                  location={location}
+                  onLocationChange={setLocation}
+              />
 
-            <InterestSelector
-                interests={interests}
-                onInterestChange={(e) => {
-                  const { value, checked } = e.target;
-                  setInterests((prev) =>
-                      checked ? [...prev, value] : prev.filter((interest) => interest !== value)
-                  );
-                }}
-            />
+              <InterestSelector
+                  interests={interests}
+                  onInterestChange={(e) => {
+                      const {value, checked} = e.target;
+                      setInterests((prev) =>
+                          checked ? [...prev, value] : prev.filter((interest) => interest !== value)
+                      );
+                  }}
+              />
 
-            <DatePicker
-                startDate={startDate}
-                endDate={endDate}
-                onStartDateChange={(e) => setStartDate(e.target.value)}
-                onEndDateChange={(e) => setEndDate(e.target.value)}
-            />
+              <DatePicker
+                  startDate={startDate}
+                  endDate={endDate}
+                  onStartDateChange={(e) => setStartDate(e.target.value)}
+                  onEndDateChange={(e) => setEndDate(e.target.value)}
+              />
+              <button onClick={() => alert('Planning started!')}>Start Planning Your Trip</button>
+
           </div>
       </>
   );

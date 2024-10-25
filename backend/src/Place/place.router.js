@@ -7,10 +7,11 @@ import {
     getPlaceById,
     updatePlace,
     deletePlace,
-    populateCountriesAndCities
+    populateCountriesAndCities, getCitiesByCountry
 } from "./place.controller.js";
 
 router.get('/populate-countries-cities', populateCountriesAndCities);
+router.get('/cities', getCitiesByCountry);
 router.post('/', addPlace);
 router.get('/', getAllPlaces);
 router.get('/:id', getPlaceById);

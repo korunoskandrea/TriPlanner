@@ -11,12 +11,16 @@ export default function TripTypeSelectorComponent({tripType, groupSize, onTripTy
                 </select>
             </label>
             {tripType === 'group' && (
-                <input
-                    type="number"
-                    placeholder={`Number of people travellin gwith you`}
-                    value={groupSize}
-                    onChange={onGroupSizeChange}
-                />
+                <label>
+                    How many people are travelling (including you)?
+                    <input
+                        type="number"
+                        placeholder={`Number of people travelling with you`}
+                        value={groupSize}
+                        onChange={onGroupSizeChange}
+                    />
+                </label>
+
             )}
         </div>
     )

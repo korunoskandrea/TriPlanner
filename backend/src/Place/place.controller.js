@@ -30,6 +30,25 @@ export const populateCountriesAndCities = async (req, res) => {
     }
 };
 
+export const getCitiesByCountry = async (req, res) => {
+    const { country } = req.query;
+
+    if (!country) {
+        return res.status(400).json({ error: 'Country name is required' });
+    }
+
+    try {
+        const place = await PlaceModel.findOne({ countryName: country });
+
+        if (!place) {
+            return res.status(404).json({ error: 'Country not found' });
+        }
+
+        res.status(200).json({ cities: place.cities });
+    } catch (error) {
+        res.status(500).json({ error: 'Error fetching cities' });
+    }
+};
 
 export const addPlace = async (req, res) => {
     const { name } = req.body;
