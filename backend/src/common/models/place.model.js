@@ -1,7 +1,8 @@
 import mongoose from "mongoose";
 
 const PlaceSchema = new mongoose.Schema({
-    locationName: { type: String, required: true },
+    countryName: { type: String, required: true },
+    cities: [{ type: String }]
 });
 
 const Place = mongoose.model('Place', PlaceSchema);

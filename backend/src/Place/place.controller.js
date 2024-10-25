@@ -1,4 +1,35 @@
 import PlaceModel from '../common/models/place.model.js';
+import axios from "axios";
+
+export const populateCountriesAndCities = async (req, res) => {
+    const apiUrl = 'https://countriesnow.space/api/v0.1/countries';
+
+    try {
+        const { data } = await axios.get(apiUrl);
+
+        if (data.error) {
+            return res.status(500).json({ error: 'Failed to fetch countries and cities' });
+        }
+
+        const savePromises = data.data.map(async (countryData) => {
+            const { country, cities } = countryData;
+
+            const place = new PlaceModel({
+                countryName: country,
+                cities: cities
+            });
+
+            return place.save();
+        });
+
+        await Promise.all(savePromises);
+
+        res.status(201).json({ message: 'Countries and cities saved successfully.' });
+    } catch (error) {
+        res.status(500).json({ error: 'Error saving countries and cities' });
+    }
+};
+
 
 export const addPlace = async (req, res) => {
     const { name } = req.body;
