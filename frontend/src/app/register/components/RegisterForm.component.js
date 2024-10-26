@@ -56,5 +56,4 @@ export default function RegisterForm({onSubmit}) {
             <AuthSubmitBtnComponent label="Register"/>
         </form>
     )
-
 }

@@ -146,7 +146,7 @@ input {
 }
 
 /*login form*/
-.login-form .register-form{
+.login-form .register-form .plan-form{
     max-width: 400px;
     margin: 100px auto;
     padding: 20px;

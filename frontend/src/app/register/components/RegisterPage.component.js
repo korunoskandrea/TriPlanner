@@ -13,7 +13,6 @@ export default function RegisterPage() {
                 password: event.password,
                 birthday: event.birthday
             });
-            console.log(name)
             const { token, expiresIn } = response.data;
 
             localStorage.setItem("token", token);
