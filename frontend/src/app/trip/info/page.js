@@ -7,7 +7,7 @@ export default function InfoPage() {
     const router = useRouter();
     const { tripType, groupSize, location, interests, startDate, endDate } = router.query;
 
-    const [notes, setNotes] = useState(''); // State to store notes todo
+    const [notes, setNotes] = useState(''); // State to store note todo
 
     const handleNotesChange = (event) => {
         setNotes(event.target.value); // Update notes state
