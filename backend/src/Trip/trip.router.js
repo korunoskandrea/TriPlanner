@@ -14,7 +14,7 @@ import {mustBeAuthenticated} from "../common/middlewares/guards/auth.guard.js";
 
 router.post('/', addTrip);
 router.get('/', getAllTrips);
-router.get('/:id', getTripById);
+router.get('/:id', [mustBeAuthenticated], getTripById);
 router.put('/:id', updateTrip);
 router.delete('/:id', deleteTrip);
 router.get('/upcoming', [mustBeAuthenticated], getUpcomingTrips);
