@@ -8,9 +8,7 @@ export default function PlanTrip() {
       <>
           <div className="container">
               <h1>Plan Your Trip</h1>
-
              <PlanPage/>
-
           </div>
       </>
   );

@@ -16,6 +16,10 @@ export default function PlanForm({onSubmit}) {
 
     const handlePlan = (event) => {
         event.preventDefault();
+        if (new Date(startDate) >= new Date(endDate)) {
+            alert("Incorrect date period");
+            return;
+        }
         onSubmit({
             tripType: tripType,
             groupSize: groupSize,

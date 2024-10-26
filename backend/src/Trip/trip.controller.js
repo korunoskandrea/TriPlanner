@@ -1,7 +1,7 @@
 import TripModel from "../common/models/trip.model.js";
 
 export const addTrip = async (req, res) => {
-    const {tripType, groupSize, location, interests, startDate, endDate, notes} = req.body;
+    const {tripType, groupSize, location, interests, startDate, endDate, notes,} = req.body;
     try {
         const newTrip = new TripModel({
             tripType: tripType,
@@ -10,7 +10,8 @@ export const addTrip = async (req, res) => {
             interests: interests,
             startDate: startDate,
             endDate: endDate,
-            notes: notes
+            notes: notes,
+            user: req.user.id
         });
         await newTrip.save();
         res.status(201).json(newTrip);
@@ -21,7 +22,9 @@ export const addTrip = async (req, res) => {
 
 export const getAllTrips = async (req, res) => {
     try {
-        const trips = await TripModel.find();
+        const trips = await TripModel.find({
+            user: req.user.id
+        });
         res.status(200).json(trips);
     } catch (error) {
         res.status(400).json({error: error.message});
@@ -43,14 +46,14 @@ export const getTripById = async (req, res) => {
 export const updateTrip = async (req, res) => {
     const {tripType, groupSize, location, interests, startDate, endDate, notes} = req.body;
     try {
-        const updatedTrip = new TripModel({
+        const updatedTrip = await TripModel.updateOne(req.params.id, {
             tripType: tripType,
             groupSize: groupSize,
             location: location,
             interests: interests,
             startDate: startDate,
             endDate: endDate,
-            notes: notes
+            notes: notes,
         });
         res.status(200).json(updatedTrip);
     } catch (error) {

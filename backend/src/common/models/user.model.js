@@ -8,8 +8,7 @@ const UserSchema = new mongoose.Schema({
     password: { type: String, required: [true, "Your password is required"] },
     birthday: { type: Date, required: [true, "Your birthday is required"] },
     interestedIn: [String],
-    pastTrips: [{type: mongoose.Schema.Types.ObjectId, ref: 'PastTrip'}],
-    upcomingTrips: [{type: mongoose.Schema.Types.ObjectId, ref: 'UpcomingTrip'}],
+    trips: [{type: mongoose.Schema.Types.ObjectId, ref: 'Trip'}],
 });
 
 UserSchema.pre("save", async function (next) {

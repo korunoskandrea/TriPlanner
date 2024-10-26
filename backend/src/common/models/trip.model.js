@@ -8,6 +8,7 @@ const TripSchema = new mongoose.Schema({
     startDate: { type: Date, required: true },
     endDate: { type: Date, required: true },
     notes: { type: String } ,
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }
 });
 
 const Trip = mongoose.model('Trip', TripSchema);

@@ -10,14 +10,13 @@ import {
     getPastTrips,
     getUpcomingTrips
 } from "./trip.controller.js";
-import {mustBeAuthenticated} from "../common/middlewares/guards/auth.guard.js";
 
 router.post('/', addTrip);
 router.get('/', getAllTrips);
-router.get('/:id', [mustBeAuthenticated], getTripById);
+router.get('/:id', getTripById);
 router.put('/:id', updateTrip);
 router.delete('/:id', deleteTrip);
-router.get('/upcoming', [mustBeAuthenticated], getUpcomingTrips);
-router.get('/past',[mustBeAuthenticated], getPastTrips);
+router.get('/upcoming', getUpcomingTrips);
+router.get('/past', getPastTrips);
 
 export default router;

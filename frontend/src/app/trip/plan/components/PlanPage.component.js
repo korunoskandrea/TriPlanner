@@ -5,7 +5,6 @@ export function PlanPage() {
     const handlePlan = async (event) => {
         try {
             const token = localStorage.getItem("token");
-            console.log(token);
             if (!token) {
                 console.error("No token found; user might not be authenticated.");
                 return;

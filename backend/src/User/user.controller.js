@@ -1,8 +1,9 @@
 import UserModel from "../common/models/user.model.js";
+import TripModel from "../common/models/trip.model.js";
 
 
 export const addUser = async (req, res) => {
-    const { name, lastName, email, password, birthday, interestedIn, pastTrips, upcomingTrips} = req.body;
+    const { name, lastName, email, password, birthday, interestedIn, trips} = req.body;
     try {
         const newUser = new UserModel({
             name: name,
@@ -11,8 +12,7 @@ export const addUser = async (req, res) => {
             password: password,
             birthday: birthday,
             interestedIn: interestedIn,
-            pastTrips: pastTrips,
-            upcomingTrips: upcomingTrips,
+            trips: trips
         });
         await newUser.save();
         res.status(201).json({user: newUser});
@@ -23,7 +23,9 @@ export const addUser = async (req, res) => {
 
 export const getUserById = async (req, res) => {
     try {
-        const user = await UserModel.findById(req.userId).populate(['pastTrips', 'upcomingTrips']);
+        const user = await UserModel.findById(req.user.id);
+        const trips = await TripModel.find({ user: req.user.id });
+        user.trips = trips;
         if (!user) {
             res.status(404).json({error: 'User not found'});
         }
