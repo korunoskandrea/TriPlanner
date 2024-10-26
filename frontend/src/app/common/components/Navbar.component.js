@@ -14,7 +14,7 @@ export default function Navbar() {
     <div className="navbar">
         <div className="auth-btns">
             <button className="login-btn" onClick={() => navigateTo("/login")}>Log in</button>
-            <button className="register-btn">Register</button>
+            <button className="register-btn" onClick={() => navigateTo("/register")}>Register</button>
         </div>
     </div>
     );

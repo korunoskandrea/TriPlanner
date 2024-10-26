@@ -1,8 +1,7 @@
-import Navbar from "@/app/components/Navbar.component";
+import Navbar from "@/app/common/components/Navbar.component";
 
 export default function HomePage() {
     return (
-
         <div>
             <Navbar/>
             <h1>Welcome To TriPlanner!</h1>

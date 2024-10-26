@@ -1,9 +1,9 @@
 'use client';
 
-import DatePicker from "../../components/DatePicker.component";
-import LocationInput from "../../components/LocationInput.component";
-import TripTypeSelectorComponent from "../../components/TripTypeSelector.component";
-import InterestSelector from "../../components/InterestSelector.component";
+import DatePicker from "@/app/common/components/DatePicker.component";
+import LocationInput from "@/app/common/components/LocationInput.component";
+import TripTypeSelectorComponent from "@/app/common/components/TripTypeSelector.component";
+import InterestSelector from "@/app/common/components/InterestSelector.component";
 import {useState} from "react";
 
 export default function PlanTrip() {

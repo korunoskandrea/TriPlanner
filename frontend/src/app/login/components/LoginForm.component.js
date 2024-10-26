@@ -1,6 +1,6 @@
 import {useState} from "react";
-import InputField from "@/app/components/InputField.component";
-import AuthSubmitBtnComponent from "@/app/components/AuthSubmitBtn.component";
+import InputField from "@/app/common/components/InputField.component";
+import AuthSubmitBtnComponent from "@/app/common/components/AuthSubmitBtn.component";
 
 export default function LoginForm({onSubmit}) {
     const [email, setEmail] = useState('');
@@ -8,7 +8,9 @@ export default function LoginForm({onSubmit}) {
 
     const handleLogin = (event) => {
         event.preventDefault();
-        onSubmit({ email, password });
+        onSubmit({
+            email: email,
+            password: password });
     };
 
     return (
