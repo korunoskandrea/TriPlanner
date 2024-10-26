@@ -8,6 +8,7 @@ export default function LocationInput({ location, onLocationChange }) {
 
     const fetchCities = async (countryName) => {
         const response = await fetch(`http://localhost:3002/api/places/cities?country=${countryName}`);
+        console.log(response)
         if (!response.ok) {
             console.error('Error fetching cities:', response.statusText);
             return [];

@@ -5,6 +5,7 @@ import LocationInput from "@/app/common/components/LocationInput.component";
 import TripTypeSelectorComponent from "@/app/common/components/TripTypeSelector.component";
 import InterestSelector from "@/app/common/components/InterestSelector.component";
 import {useState} from "react";
+import {useRouter} from "next/navigation";
 
 export default function PlanTrip() {
   const [tripType, setTripType] = useState('alone');
@@ -13,6 +14,25 @@ export default function PlanTrip() {
   const [interests, setInterests] = useState([]);
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
+
+  const router = useRouter();
+  const handleInfoTrip = () => {
+      if (!tripType || !location || !startDate || !endDate) {
+          alert("Please fill in all fields before proceeding.");
+          return;
+      }
+
+      router.push('/trip/info', {
+          query: {
+              tripType: tripType,
+              group: groupSize,
+              location: location,
+              interests: interests.join(',') || '',
+              startDate: startDate,
+              endDate: endDate,
+          },
+      });
+  }
 
   return (
       <>
@@ -47,6 +67,8 @@ export default function PlanTrip() {
                   onStartDateChange={(e) => setStartDate(e.target.value)}
                   onEndDateChange={(e) => setEndDate(e.target.value)}
               />
+
+              <button onClick={handleInfoTrip}>Info for the trip</button>
           </div>
       </>
   );
