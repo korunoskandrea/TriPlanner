@@ -1,12 +1,8 @@
-/* HomePage.css */
-.navbar {
-    display: flex;
-    justify-content: flex-end;
-    padding: 10px;
-    background-color: #f8f8f8;
-    border-bottom: 1px solid #ddd;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* HomePage.css */
 .auth-buttons {
     display: flex;
     gap: 10px;
@@ -167,3 +163,29 @@ input {
     margin-bottom: 10px;
     text-align: center;
 }
+
+/* Rotating globe animation*/
+#earth{
+    position: relative;
+    height: 450px;
+    width: 450px;
+    margin: 0.05em auto;
+    background: #888 url(https://i.pinimg.com/564x/16/8a/a5/168aa51f2d59bc681cd2baa9cf48f811.jpg) 0 0 repeat ;
+    border-radius: 50%;
+    background-size: 630px;
+    animation: rotate 4s linear infinite;
+    transition: transform 200ms linear;
+    transform-style: preserve-3d;
+    box-shadow: inset 20px 0 65px 6px rgba(0, 0, 0, 0.38);
+    color: #000;
+}
+
+@keyframes rotate {
+    0%{
+        background-position: 0 0;
+    }
+    100%{
+        background-position: 630px 0px;
+    }
+}
+

@@ -1,4 +1,5 @@
 import Navbar from "@/app/common/components/Navbar.component";
+import RotatingGlobeComponent from "@/app/common/components/RotatingGlobe.component";
 
 export default function HomePage() {
     return (
@@ -6,6 +7,7 @@ export default function HomePage() {
             <Navbar/>
             <h1>Welcome To TriPlanner!</h1>
             <h3>Lets plan your next trip</h3>
+            <RotatingGlobeComponent/>
         </div>
 
     );
