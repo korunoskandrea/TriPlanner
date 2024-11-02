@@ -37,9 +37,15 @@ export default function InfoPage() {
     };
 
     return (
-        <div className="container">
-            <TripCard tripData={tripData} />
-            <button onClick={navigateToProfile}>Visit your Profile</button>
+        <div className="container mt-5">
+            <div className="row">
+                <div className="col-md-8 offset-md-2">
+                    <TripCard tripData={tripData}/>
+                    <button onClick={navigateToProfile} className="btn btn-primary mt-4 w-100">
+                        Visit your Profile
+                    </button>
+                </div>
+            </div>
         </div>
     );
 }

@@ -11,6 +11,7 @@
   "dependencies": {
     "@next/env": "^15.0.1",
     "axios": "^1.7.7",
+    "bootstrap": "^5.3.3",
     "d": "^1.0.2",
     "leaflet": "^1.9.4",
     "next": "15.0.1",
@@ -20,6 +21,7 @@
   },
   "devDependencies": {
     "eslint": "^8",
-    "eslint-config-next": "15.0.1"
+    "eslint-config-next": "15.0.1",
+    "tailwindcss": "^3.4.14"
   }
 }

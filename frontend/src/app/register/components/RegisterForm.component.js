@@ -21,39 +21,54 @@ export default function RegisterForm({onSubmit}) {
     }
 
     return (
-        <form onSubmit={handleRegister} className="register-form">
-            <h2>Register</h2>
-            <InputField
-                label="Name"
-                type="name"
-                value={name}
-                onChange={(event) => setName(event.target.value)}
-            />
-            <InputField
-                label="Lastname"
-                type="lastname"
-                value={lastName}
-                onChange={(event) => setLastName(event.target.value)}
-            />
-            <InputField
-                label="Email"
-                type="email"
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-            />
-            <InputField
-                label="Password"
-                type="password"
-                value={password}
-                onChange={(event) => setPassword(event.target.value)}
-            />
-            <InputField
-                label="Birthday"
-                type="birthday"
-                value={birthday}
-                onChange={(event) => setBirthday(event.target.value)}
-            />
-            <AuthSubmitBtnComponent label="Register"/>
+        <form onSubmit={handleRegister} className="register-form container mt-5 p-4 border rounded shadow-sm" style={{ maxWidth: "500px" }}>
+            <h2 className="mb-4 text-center">Register</h2>
+            <div className="mb-3">
+                <InputField
+                    label="Name"
+                    type="text"
+                    value={name}
+                    onChange={(event) => setName(event.target.value)}
+                    className="form-control"
+                />
+            </div>
+            <div className="mb-3">
+                <InputField
+                    label="Last Name"
+                    type="text"
+                    value={lastName}
+                    onChange={(event) => setLastName(event.target.value)}
+                    className="form-control"
+                />
+            </div>
+            <div className="mb-3">
+                <InputField
+                    label="Email"
+                    type="email"
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)}
+                    className="form-control"
+                />
+            </div>
+            <div className="mb-3">
+                <InputField
+                    label="Password"
+                    type="password"
+                    value={password}
+                    onChange={(event) => setPassword(event.target.value)}
+                    className="form-control"
+                />
+            </div>
+            <div className="mb-3">
+                <InputField
+                    label="Birthday"
+                    type="date"
+                    value={birthday}
+                    onChange={(event) => setBirthday(event.target.value)}
+                    className="form-control"
+                />
+            </div>
+            <AuthSubmitBtnComponent label="Register" className="btn btn-primary w-100" />
         </form>
-    )
+    );
 }

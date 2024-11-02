@@ -14,21 +14,27 @@ export default function LoginForm({onSubmit}) {
     };
 
     return (
-        <form onSubmit={handleLogin} className="login-form">
-            <h2>Log In</h2>
-            <InputField
-                label="Email"
-                type="email"
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-            />
-            <InputField
-                label="Password"
-                type="password"
-                value={password}
-                onChange={(event) => setPassword(event.target.value)}
-            />
-            <AuthSubmitBtnComponent label="Log in"/>
+        <form onSubmit={handleLogin} className="login-form container mt-5 p-4 border rounded shadow-sm" style={{ maxWidth: "400px" }}>
+            <h2 className="mb-4 text-center">Log In</h2>
+            <div className="mb-3">
+                <InputField
+                    label="Email"
+                    type="email"
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)}
+                    className="form-control"
+                />
+            </div>
+            <div className="mb-3">
+                <InputField
+                    label="Password"
+                    type="password"
+                    value={password}
+                    onChange={(event) => setPassword(event.target.value)}
+                    className="form-control"
+                />
+            </div>
+            <AuthSubmitBtnComponent label="Log in" className="btn btn-primary w-100" />
         </form>
-    )
+    );
 }

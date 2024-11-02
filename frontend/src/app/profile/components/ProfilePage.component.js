@@ -33,13 +33,24 @@ export function ProfilePage(){
     };
 
     return (
-        <div className="profile-page">
-            <h2>Profile</h2>
-                <p><strong>Name:</strong> {userData.name} </p>
-                <p><strong>Lastname:</strong> {userData.lastName}</p>
-                <p><strong>Birthday:</strong> {formatDate(userData.birthday)}</p>
-                <p><strong>Email:</strong> {userData.email}</p>
-                { userData.trips.map((trip) =>  <TripCard tripData={trip}></TripCard>) }
+        <div className="container mt-5">
+            <div className="card p-4 shadow-sm">
+                <h2 className="mb-4 text-center">Profile</h2>
+                <div className="mb-3">
+                    <p><strong>Name:</strong> {userData.name}</p>
+                    <p><strong>Last Name:</strong> {userData.lastName}</p>
+                    <p><strong>Birthday:</strong> {formatDate(userData.birthday)}</p>
+                    <p><strong>Email:</strong> {userData.email}</p>
+                </div>
+                <h3 className="mt-4">Trips</h3>
+                <div className="row">
+                    {userData.trips.map((trip, index) => (
+                        <div key={index} className="col-md-6 mb-4">
+                            <TripCard tripData={trip} />
+                        </div>
+                    ))}
+                </div>
+            </div>
         </div>
     );
 }

@@ -31,45 +31,60 @@ export default function PlanForm({onSubmit}) {
         });
     }
 
-    return(
-        <form onSubmit={handlePlan} className="plan-form">
-            <TripTypeSelectorComponent
-                tripType={tripType}
-                groupSize={groupSize}
-                onTripTypeChange={(e) => setTripType(e.target.value)}
-                onGroupSizeChange={(e) => setGroupSize(e.target.value)}
-            />
+    return (
+        <form onSubmit={handlePlan} className="plan-form container mt-5 p-4 border rounded shadow-sm" style={{ maxWidth: "600px" }}>
+            <h2 className="mb-4 text-center">Plan Your Trip</h2>
 
-            <LocationInput
-                location={location}
-                onLocationChange={setLocation}
-            />
+            <div className="mb-3">
+                <TripTypeSelectorComponent
+                    tripType={tripType}
+                    groupSize={groupSize}
+                    onTripTypeChange={(e) => setTripType(e.target.value)}
+                    onGroupSizeChange={(e) => setGroupSize(e.target.value)}
+                />
+            </div>
 
-            <InterestSelector
-                interests={interests}
-                onInterestChange={(e) => {
-                    const {value, checked} = e.target;
-                    setInterests((prev) =>
-                        checked ? [...prev, value] : prev.filter((interest) => interest !== value)
-                    );
-                }}
-            />
+            <div className="mb-3">
+                <LocationInput
+                    location={location}
+                    onLocationChange={setLocation}
+                />
+            </div>
 
-            <DatePicker
-                startDate={startDate}
-                endDate={endDate}
-                onStartDateChange={(e) => setStartDate(e.target.value)}
-                onEndDateChange={(e) => setEndDate(e.target.value)}
-            />
+            <div className="mb-3">
+                <InterestSelector
+                    interests={interests}
+                    onInterestChange={(e) => {
+                        const { value, checked } = e.target;
+                        setInterests((prev) =>
+                            checked ? [...prev, value] : prev.filter((interest) => interest !== value)
+                        );
+                    }}
+                />
+            </div>
 
-            <InputField
-                label="Notes"
-                type="notes"
-                value={notes}
-                onChange={(event) => setNotes(event.target.value)}
-            />
+            <div className="mb-3">
+                <DatePicker
+                    startDate={startDate}
+                    endDate={endDate}
+                    onStartDateChange={(e) => setStartDate(e.target.value)}
+                    onEndDateChange={(e) => setEndDate(e.target.value)}
+                />
+            </div>
 
-            <button onClick={handlePlan}>Info for the trip</button>
+            <div className="mb-3">
+                <InputField
+                    label="Notes"
+                    type="text"
+                    value={notes}
+                    onChange={(event) => setNotes(event.target.value)}
+                    className="form-control"
+                />
+            </div>
+
+            <button type="submit" className="btn btn-primary w-100 mt-4">
+                Info for the Trip
+            </button>
         </form>
     );
 }

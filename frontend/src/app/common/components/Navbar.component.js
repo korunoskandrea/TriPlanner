@@ -11,11 +11,17 @@ export default function Navbar() {
     };
 
     return (
-    <div className="navbar">
-        <div className="auth-btns">
-            <button className="login-btn" onClick={() => navigateTo("/login")}>Log in</button>
-            <button className="register-btn" onClick={() => navigateTo("/register")}>Register</button>
-        </div>
-    </div>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <div className="container-fluid">
+                <div className="d-flex justify-content-end">
+                    <button className="btn btn-outline-primary me-2" onClick={() => navigateTo("/login")}>
+                        Log in
+                    </button>
+                    <button className="btn btn-primary" onClick={() => navigateTo("/register")}>
+                        Register
+                    </button>
+                </div>
+            </div>
+        </nav>
     );
 }

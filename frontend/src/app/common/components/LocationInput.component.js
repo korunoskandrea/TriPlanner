@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 export default function LocationInput({ location, onLocationChange }) {
     const [country, setCountry] = useState('');
@@ -47,29 +47,32 @@ export default function LocationInput({ location, onLocationChange }) {
     };
 
     return (
-        <div>
-            <label>
-                Where are you traveling to?
+        <div className="mb-3">
+            <div className="form-group">
+                <label className="form-label">Where are you traveling to?</label>
                 <input
                     type="text"
                     value={country}
                     onChange={handleCountryChange}
                     placeholder="Enter Country"
+                    className="form-control"
                 />
-            </label>
+            </div>
             {cities.length > 0 && (
-                <div>
-                    <label>
-                        Select a city:
-                        <select value={selectedCity} onChange={handleCityChange}>
-                            <option value="" disabled>Select a city</option>
-                            {cities.map((city, index) => (
-                                <option key={index} value={city}>
-                                    {city}
-                                </option>
-                            ))}
-                        </select>
-                    </label>
+                <div className="form-group mt-3">
+                    <label className="form-label">Select a city:</label>
+                    <select
+                        value={selectedCity}
+                        onChange={handleCityChange}
+                        className="form-select"
+                    >
+                        <option value="" disabled>Select a city</option>
+                        {cities.map((city, index) => (
+                            <option key={index} value={city}>
+                                {city}
+                            </option>
+                        ))}
+                    </select>
                 </div>
             )}
         </div>
