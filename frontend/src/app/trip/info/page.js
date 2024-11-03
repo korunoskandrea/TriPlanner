@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter, useSearchParams } from "next/navigation";
 import TripCard from "@/app/common/components/TripCard.component";
+import Navbar from "@/app/common/components/Navbar.component";
 
 export default function InfoPage() {
     const router = useRouter();

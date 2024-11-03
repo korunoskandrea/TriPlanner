@@ -1,27 +1,42 @@
-"use client"
+"use client";
 
-import {useRouter} from "next/navigation";
+import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function Navbar() {
     const router = useRouter();
-    const navigateTo = (path) => {
-        setTimeout(() => {
-            router.push(path);
-        }, 100);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        setIsAuthenticated(!!token);
+    }, []);
+
+    const handleLogout = (event) => {
+        event.preventDefault();
+        localStorage.removeItem("token");
+        setIsAuthenticated(false);
+        router.push("/login");
     };
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <div className="container-fluid">
-                <div className="d-flex justify-content-end">
-                    <button className="btn btn-outline-primary me-2" onClick={() => navigateTo("/login")}>
-                        Log in
-                    </button>
-                    <button className="btn btn-primary" onClick={() => navigateTo("/register")}>
-                        Register
-                    </button>
-                </div>
-            </div>
+        <nav>
+            <ul className="list">
+                <Image src="/assets/travel-around-the-world.png" width={50} height={50} alt="Travel Logo" />
+                <h3 className="h3-navbar"> TriPlanner</h3>
+                {isAuthenticated ? (
+                    <>
+                        <li><a href="/profile">Profile</a></li>
+                        <li><a href="/login" onClick={handleLogout}>Log out</a></li>
+                    </>
+                ) : (
+                    <>
+                        <li><a href="/login">Log in</a></li>
+                        <li><a href="/register">Register</a></li>
+                    </>
+                )}
+            </ul>
         </nav>
     );
 }

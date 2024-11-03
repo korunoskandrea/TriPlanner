@@ -5,16 +5,27 @@ import AuthSubmitBtnComponent from "@/app/common/components/AuthSubmitBtn.compon
 export default function LoginForm({onSubmit}) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
 
-    const handleLogin = (event) => {
+    const handleLogin = async (event) => {
         event.preventDefault();
-        onSubmit({
-            email: email,
-            password: password });
+        setError('');
+        try {
+            const response = await onSubmit({
+                email: email,
+                password: password
+            });
+
+            if (response.error) {
+                setError(response.error);
+            }
+        } catch (err) {
+            setError('An unexpected error occurred. User does not exist or there are incorrect password and email.');
+        }
     };
 
     return (
-        <form onSubmit={handleLogin} className="login-form container mt-5 p-4 border rounded shadow-sm" style={{ maxWidth: "400px" }}>
+        <form onSubmit={handleLogin} className="login-form container mt-5 p-4 border rounded shadow-sm">
             <h2 className="mb-4 text-center">Log In</h2>
             <div className="mb-3">
                 <InputField
@@ -34,7 +45,8 @@ export default function LoginForm({onSubmit}) {
                     className="form-control"
                 />
             </div>
-            <AuthSubmitBtnComponent label="Log in" className="btn btn-primary w-100" />
+            <AuthSubmitBtnComponent label="Log in" className="btn btn-primary w-100"/>
         </form>
+
     );
 }

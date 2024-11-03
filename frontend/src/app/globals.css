@@ -1,8 +1,47 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Navbar styles */
+body {
+    margin: 0;
+    min-height: 200vh;
+    font-size: 0;
+    font-family: Helvetica, Verdana, sans-serif;
+}
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 16px 20px 30px 20px;
+    display: flex;
+    align-items: center;
+    transition: 0.3s ease-out;
+    backdrop-filter: blur(8px) brightness(1.2);
+    -webkit-backdrop-filter: blur(8px) brightness(1.2);
+    box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.18);
+    color: white;
+    background-color: #bfdbdd;
+    font-size: 16px;
 
-/* HomePage.css */
+    @media (min-width: 640px) {
+        padding: 16px 50px 30px 50px;
+    }
+}
+
+.h3-navbar {
+    color: black;
+}
+
+.list {
+    list-style-type: none;
+    margin-left: auto;
+    display: none;
+    @media (min-width: 640px) {
+        display: flex;
+    }
+    li {
+        margin-left: 20px;
+    }
+}
+
 .auth-buttons {
     display: flex;
     gap: 10px;
@@ -24,12 +63,17 @@
     background-color: #005bb5;
 }
 
+/* Main container styles */
 .container {
     padding: 20px;
     max-width: 800px;
-    margin: auto;
+    margin: 50px auto; /* Center the container with margin */
+    background-color: #fff; /* White background for the container */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
+/* Body styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -38,27 +82,23 @@ body {
     color: #333; /* Dark text color */
 }
 
-.container {
-    max-width: 800px; /* Limit the width of the container */
-    margin: 50px auto; /* Center the container with margin */
-    padding: 20px;
-    background-color: #fff; /* White background for the container */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+/* Heading styles */
+h1, h2, h3 {
+    text-align: center; /* Center the headings */
+    color: #007bff; /* Blue color for the headings */
 }
 
-h1 {
-    text-align: center; /* Center the heading */
-    color: #007bff; /* Blue color for the heading */
-}
-
+/* Form label styles */
 label {
     display: block; /* Stack label and input */
     margin-bottom: 10px; /* Space between label and input */
     font-weight: bold; /* Bold text for labels */
 }
 
+/* Input field styles */
 input[type="text"],
+input[type="email"],
+input[type="password"],
 select {
     width: 100%; /* Full width input fields */
     padding: 10px; /* Padding for better spacing */
@@ -70,29 +110,33 @@ select {
 }
 
 input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
 select:focus {
     border-color: #007bff; /* Change border color on focus */
     outline: none; /* Remove default outline */
 }
 
-ul {
-    list-style-type: none; /* Remove default list styling */
-    padding: 0; /* Remove padding */
-}
+/* List styles */
+/*ul {*/
+/*    list-style-type: none; !* Remove default list styling *!*/
+/*    padding: 0; !* Remove padding *!*/
+/*}*/
 
-li {
-    padding: 10px; /* Padding for list items */
-    background-color: #e9ecef; /* Light gray background for items */
-    border-radius: 5px; /* Rounded corners */
-    margin-bottom: 10px; /* Space between items */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s; /* Transition effect for hover */
-}
+/*li {*/
+/*    padding: 10px; !* Padding for list items *!*/
+/*    background-color: #e9ecef; !* Light gray background for items *!*/
+/*    border-radius: 5px; !* Rounded corners *!*/
+/*    margin-bottom: 10px; !* Space between items *!*/
+/*    cursor: pointer; !* Pointer cursor on hover *!*/
+/*    transition: background-color 0.3s; !* Transition effect for hover *!*/
+/*}*/
 
-li:hover {
-    background-color: #ced4da; /* Darker gray on hover */
-}
+/*li:hover {*/
+/*    background-color: #ced4da; !* Darker gray on hover *!*/
+/*}*/
 
+/* Button styles */
 button {
     padding: 10px 15px; /* Padding for buttons */
     background-color: #007bff; /* Blue background for buttons */
@@ -107,56 +151,17 @@ button:hover {
     background-color: #0056b3; /* Darker blue on hover */
 }
 
-/*input_field*/
-.input-group {
-    margin-bottom: 16px;
-}
-
-label {
-    display: block;
-    font-size: 14px;
-    margin-bottom: 4px;
-}
-
-input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-/*Submit auth button*/
-.auth-btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #0070f3;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.auth-btn:hover {
-    background-color: #005bb5;
-}
-
-/*login form*/
-.login-form .register-form .plan-form{
+/* Login form styles */
+.login-form, .register-form, .plan-form {
     max-width: 400px;
-    margin: 100px auto;
+    margin: 100px auto; /* Center the form */
     padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd; /* Light border for forms */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
-.h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/*error message*/
+/* Error message styles */
 .error-message {
     color: red;
     font-size: 12px;
@@ -164,13 +169,29 @@ input {
     text-align: center;
 }
 
-/* Rotating globe animation*/
-#earth{
+
+.login-container .card {
+    display: flex;
+    justify-content: center;
+}
+
+
+.login-container .card-body {
+    width: 70%;
+}
+
+/* Home page */
+
+.home-page-body {
+    padding-top: 10%;
+}
+
+#earth {
     position: relative;
     height: 450px;
     width: 450px;
-    margin: 0.05em auto;
-    background: #888 url(https://i.pinimg.com/564x/16/8a/a5/168aa51f2d59bc681cd2baa9cf48f811.jpg) 0 0 repeat ;
+    margin: 0.05em auto; /* Center the globe */
+    background: #888 url(https://i.pinimg.com/564x/16/8a/a5/168aa51f2d59bc681cd2baa9cf48f811.jpg) 0 0 repeat;
     border-radius: 50%;
     background-size: 630px;
     animation: rotate 4s linear infinite;
@@ -181,11 +202,10 @@ input {
 }
 
 @keyframes rotate {
-    0%{
+    0% {
         background-position: 0 0;
     }
-    100%{
+    100% {
         background-position: 630px 0px;
     }
 }
-

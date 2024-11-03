@@ -1,5 +1,7 @@
 import axios from "axios";
 import PlanForm from "@/app/trip/plan/components/PlanForm.component";
+import Navbar from "@/app/common/components/Navbar.component";
+import React from "react";
 
 export function PlanPage() {
     const handlePlan = async (event) => {
@@ -38,5 +40,11 @@ export function PlanPage() {
         }
     };
 
-    return <PlanForm onSubmit={handlePlan} />;
+    return (
+        <>
+            <Navbar/>
+            <PlanForm onSubmit={handlePlan}/>
+        </>
+
+    );
 }
