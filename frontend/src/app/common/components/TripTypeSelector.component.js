@@ -2,18 +2,18 @@ import React from 'react';
 
 export default function TripTypeSelectorComponent({tripType, groupSize, onTripTypeChange, onGroupSizeChange}) {
     return (
-        <div className="mb-3">
-            <label className="form-label">
+        <div>
+            <legend>
                 Travelling alone or in a group?
-            </label>
-            <select className="form-select" value={tripType} onChange={onTripTypeChange}>
+            </legend>
+            <select value={tripType} onChange={onTripTypeChange}>
                 <option value="alone">Alone</option>
                 <option value="group">Group</option>
             </select>
 
             {tripType === 'group' && (
-                <div className="mt-3">
-                    <label className="form-label">
+                <div>
+                    <label>
                         How many people are travelling (including you)?
                     </label>
                     <input

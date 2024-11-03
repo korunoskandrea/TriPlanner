@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 export default function InputField({label, type, value, onChange}) {
     return (
         <div>
-            <label>{label}</label>
+            <legend>{label}</legend>
             <input
                 type={type}
                 value={value}

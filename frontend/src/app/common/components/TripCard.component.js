@@ -23,13 +23,13 @@ export default function TripCard({ tripData }) {
                 <h2 className="card-title">
                     {isPastEvent ? "Past Event" : "Upcoming Event"}
                 </h2>
-                <p><strong>Trip Type:</strong> {tripData.tripType}</p>
-                <p><strong>Group Size:</strong> {tripData.groupSize}</p>
-                <p><strong>Location:</strong> {tripData.location}</p>
-                <p><strong>Interests:</strong> {tripData.interests.join(", ")}</p>
-                <p><strong>Start Date:</strong> {formatDate(tripData.startDate)}</p>
-                <p><strong>End Date:</strong> {formatDate(tripData.endDate)}</p>
-                {tripData.notes && <p><strong>Notes:</strong> {tripData.notes}</p>}
+                <legend>Trip Type: {tripData.tripType}</legend>
+                <legend>Group Size: {tripData.groupSize || 0}</legend>
+                <legend>Location: {tripData.location}</legend>
+                <legend>Interests: {tripData.interests.join(", ")}</legend>
+                <legend>Start Date:{formatDate(tripData.startDate)}</legend>
+                <legend>End Date: {formatDate(tripData.endDate)} </legend>
+                {tripData.notes && <legend>Notes: {tripData.notes}</legend>}
                 <Map location={tripData.location} />
             </div>
         </div>

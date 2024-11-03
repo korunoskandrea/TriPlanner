@@ -32,10 +32,10 @@ export default function PlanForm({onSubmit}) {
     }
 
     return (
-        <form onSubmit={handlePlan} className="plan-form container mt-5 p-4 border rounded shadow-sm" style={{ maxWidth: "600px" }}>
-            <h2 className="mb-4 text-center">Plan Your Trip</h2>
+        <form onSubmit={handlePlan} className="plan-form ">
+            <h2>Plan Your Trip</h2>
 
-            <div className="mb-3">
+            <div>
                 <TripTypeSelectorComponent
                     tripType={tripType}
                     groupSize={groupSize}
@@ -44,14 +44,14 @@ export default function PlanForm({onSubmit}) {
                 />
             </div>
 
-            <div className="mb-3">
+            <div>
                 <LocationInput
                     location={location}
                     onLocationChange={setLocation}
                 />
             </div>
 
-            <div className="mb-3">
+            <div>
                 <InterestSelector
                     interests={interests}
                     onInterestChange={(e) => {
@@ -63,7 +63,7 @@ export default function PlanForm({onSubmit}) {
                 />
             </div>
 
-            <div className="mb-3">
+            <div>
                 <DatePicker
                     startDate={startDate}
                     endDate={endDate}
@@ -72,17 +72,16 @@ export default function PlanForm({onSubmit}) {
                 />
             </div>
 
-            <div className="mb-3">
+            <div>
                 <InputField
                     label="Notes"
                     type="text"
                     value={notes}
                     onChange={(event) => setNotes(event.target.value)}
-                    className="form-control"
                 />
             </div>
 
-            <button type="submit" className="btn btn-primary w-100 mt-4">
+            <button type="submit" className="btn">
                 Info for the Trip
             </button>
         </form>

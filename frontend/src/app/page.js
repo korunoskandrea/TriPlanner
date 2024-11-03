@@ -8,7 +8,7 @@ export default function HomePage() {
         <div className="home-page">
             <Navbar />
             <div className="home-page-body">
-                <h1 className="display-3 mt-4">
+                <h1>
                     <Typewriter
                         words={["Welcome To TriPlanner!"]}
                         loop={false}
@@ -20,7 +20,7 @@ export default function HomePage() {
                     />
                 </h1>
                 <RotatingGlobeComponent/>
-                <h3 className="mt-2"><Typewriter
+                <h3><Typewriter
                     words={["Let's plan together"]}
                     loop={false}
                     cursor
