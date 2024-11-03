@@ -7,34 +7,61 @@ import Image from "next/image";
 export default function Navbar() {
     const router = useRouter();
     const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [currentPath, setCurrentPath] = useState("");
 
     useEffect(() => {
         const token = localStorage.getItem("token");
         setIsAuthenticated(!!token);
+        setCurrentPath(window.location.pathname);
     }, []);
 
     const handleLogout = (event) => {
         event.preventDefault();
         localStorage.removeItem("token");
         setIsAuthenticated(false);
-        router.push("/login");
+        router.push("/");
     };
+
+    const handleToHome = (event) => {
+        event.preventDefault();
+        router.push("/");
+    }
+    const handleToRegister = (event) => {
+        event.preventDefault();
+        router.push("/register");
+    }
+    const handleToLogIn = (event) => {
+        event.preventDefault();
+        router.push("/login");
+    }
+    const handleToProfile = (event) => {
+        event.preventDefault();
+        router.push("/profile");
+    }
 
     return (
         <nav>
             <ul className="list">
                 <Image src="/assets/travel-around-the-world.png" width={50} height={50} alt="Travel Logo" />
                 <h3 className="h3-navbar"> TriPlanner</h3>
-                {isAuthenticated ? (
+                {currentPath === "/login" ? (
                     <>
-                        <li><a href="/profile">Profile</a></li>
-                        <li><a href="/login" onClick={handleLogout}>Log out</a></li>
+                        <li><button className="nav-buttons" onClick={handleToHome}>Home</button></li>
+                        <li><button className="nav-buttons" onClick={handleToRegister}>Register</button></li>
                     </>
                 ) : (
-                    <>
-                        <li><a href="/login">Log in</a></li>
-                        <li><a href="/register">Register</a></li>
-                    </>
+                    isAuthenticated ? (
+                        <>
+                            <li><button className="nav-buttons" onClick={handleToProfile}>Profile</button></li>
+                            <li><button className="nav-buttons" onClick={handleToHome}>Home</button></li>
+                            <li><button className="nav-buttons" onClick={handleLogout}>Log out</button></li>
+                        </>
+                    ) : (
+                        <>
+                            <li><button className="nav-buttons" onClick={handleToLogIn}>Login</button></li>
+                            <li><button className="nav-buttons" onClick={handleToRegister}>Register</button></li>
+                        </>
+                    )
                 )}
             </ul>
         </nav>

@@ -26,8 +26,31 @@ nav {
     }
 }
 
-.h3-navbar {
-    color: black;
+.nav-buttons {
+    background-color: transparent;
+    border: none;
+    color: #003a37;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px;
+    transition: color 0.3s;
+}
+
+.nav-buttons:hover {
+    background-color: #9ec5c6;
+    color: #bfdbdd ;
+}
+
+.list {
+    display: flex;
+    align-items: center;
+}
+
+
+.h3-navbar, h1, h2 {
+    color: #003a37;
+    text-align: center;
+
 }
 
 .list {
@@ -42,26 +65,42 @@ nav {
     }
 }
 
-.auth-buttons {
-    display: flex;
-    gap: 10px;
+/* Login Register Plan form styles */
+.login-form, .register-form, .plan-form {
+    max-width: 400px;
+    margin: 15% auto; ;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #bfdbdd;
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.1);
 }
 
-.login-button,
-.register-button {
-    padding: 8px 16px;
-    background-color: #0070f3;
-    color: #fff;
+.auth-btn {
     border: none;
-    border-radius: 4px;
+    color: #9ec5c6;
+    background-color: #045149;
+    font-size: 17px;
     cursor: pointer;
-    font-size: 14px;
+    padding: 10px;
+    transition: color 0.3s;
+    border-radius: 10px;
+}
+.auth-btn:hover {
+    border: none;
+    color: #045149;
+    background-color: #9ec5c6;
+    font-size: 17px;
+    cursor: pointer;
+    padding: 10px;
+    transition: color 0.3s;
+    border-radius: 10px;
+}
+.error-message {
+    color: red;
+    margin-bottom: 10px;
 }
 
-.login-button:hover,
-.register-button:hover {
-    background-color: #005bb5;
-}
 
 /* Main container styles */
 .container {
@@ -82,11 +121,7 @@ body {
     color: #333; /* Dark text color */
 }
 
-/* Heading styles */
-h1, h2, h3 {
-    text-align: center; /* Center the headings */
-    color: #007bff; /* Blue color for the headings */
-}
+
 
 /* Form label styles */
 label {
@@ -117,50 +152,6 @@ select:focus {
     outline: none; /* Remove default outline */
 }
 
-/* List styles */
-/*ul {*/
-/*    list-style-type: none; !* Remove default list styling *!*/
-/*    padding: 0; !* Remove padding *!*/
-/*}*/
-
-/*li {*/
-/*    padding: 10px; !* Padding for list items *!*/
-/*    background-color: #e9ecef; !* Light gray background for items *!*/
-/*    border-radius: 5px; !* Rounded corners *!*/
-/*    margin-bottom: 10px; !* Space between items *!*/
-/*    cursor: pointer; !* Pointer cursor on hover *!*/
-/*    transition: background-color 0.3s; !* Transition effect for hover *!*/
-/*}*/
-
-/*li:hover {*/
-/*    background-color: #ced4da; !* Darker gray on hover *!*/
-/*}*/
-
-/* Button styles */
-button {
-    padding: 10px 15px; /* Padding for buttons */
-    background-color: #007bff; /* Blue background for buttons */
-    color: white; /* White text color */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor */
-    transition: background-color 0.3s; /* Transition effect */
-}
-
-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-}
-
-/* Login form styles */
-.login-form, .register-form, .plan-form {
-    max-width: 400px;
-    margin: 100px auto; /* Center the form */
-    padding: 20px;
-    border: 1px solid #ddd; /* Light border for forms */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-
 /* Error message styles */
 .error-message {
     color: red;
@@ -169,16 +160,6 @@ button:hover {
     text-align: center;
 }
 
-
-.login-container .card {
-    display: flex;
-    justify-content: center;
-}
-
-
-.login-container .card-body {
-    width: 70%;
-}
 
 /* Home page */
 
