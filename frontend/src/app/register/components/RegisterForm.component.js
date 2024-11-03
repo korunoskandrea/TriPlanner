@@ -1,6 +1,8 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import InputField from "@/app/common/components/InputField.component";
 import AuthSubmitBtnComponent from "@/app/common/components/AuthSubmitBtn.component";
+import {useRouter} from "next/navigation";
+import {router} from "next/client"; // Use this for Next.js 13+
 
 export default function RegisterForm({onSubmit}) {
     const [name, setName] = useState('');
@@ -8,9 +10,15 @@ export default function RegisterForm({onSubmit}) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [birthday, setBirthday] = useState('');
+    const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
+    const router = useRouter();
 
     const handleRegister = (event) => {
         event.preventDefault();
+        setError('');
+        setLoading(true);
+
         onSubmit({
             name: name,
             lastName: lastName,
@@ -18,57 +26,56 @@ export default function RegisterForm({onSubmit}) {
             password: password,
             birthday: birthday
         });
+
+        router.push("/login")
+
     }
 
     return (
-        <form onSubmit={handleRegister} className="register-form container mt-5 p-4 border rounded shadow-sm" style={{ maxWidth: "500px" }}>
-            <h2 className="mb-4 text-center">Register</h2>
-            <div className="mb-3">
+        <form onSubmit={handleRegister} className="register-form">
+            <h2>Register</h2>
+            <div>
                 <InputField
                     label="Name"
                     type="text"
                     value={name}
                     onChange={(event) => setName(event.target.value)}
-                    className="form-control"
                 />
             </div>
-            <div className="mb-3">
+            <div>
                 <InputField
                     label="Last Name"
                     type="text"
                     value={lastName}
                     onChange={(event) => setLastName(event.target.value)}
-                    className="form-control"
                 />
             </div>
-            <div className="mb-3">
+            <div>
                 <InputField
                     label="Email"
                     type="email"
                     value={email}
                     onChange={(event) => setEmail(event.target.value)}
-                    className="form-control"
                 />
             </div>
-            <div className="mb-3">
+            <div>
                 <InputField
                     label="Password"
                     type="password"
                     value={password}
                     onChange={(event) => setPassword(event.target.value)}
-                    className="form-control"
                 />
             </div>
-            <div className="mb-3">
+            <div>
                 <InputField
                     label="Birthday"
                     type="date"
                     value={birthday}
                     onChange={(event) => setBirthday(event.target.value)}
-                    className="form-control"
                 />
             </div>
-            <AuthSubmitBtnComponent label="Register" className="btn btn-primary w-100" />
+            <AuthSubmitBtnComponent label={loading ? "Registering..." : "Register"} onClick={handleRegister}
+                                    disabled={loading}/>
         </form>
     );
 }
