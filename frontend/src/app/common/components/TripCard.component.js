@@ -18,7 +18,7 @@ export default function TripCard({ tripData }) {
     const isPastEvent = new Date(tripData.endDate) < new Date();
 
     return (
-        <div className="card mb-3">
+        <div>
             <div className="card-body">
                 <h2 className="card-title">
                     {isPastEvent ? "Past Event" : "Upcoming Event"}
