@@ -1,15 +1,23 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect, useLayoutEffect} from "react";
 import axios from "axios";
-import { useRouter, useSearchParams } from "next/navigation";
+import {redirect, useRouter, useSearchParams} from "next/navigation";
 import TripCard from "@/app/common/components/TripCard.component";
 import Navbar from "@/app/common/components/Navbar.component";
+import {isAuthenticated} from "@/app/utils/auth";
 
 export default function InfoPage() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const tripId = searchParams.get("id");
     const [tripData, setTripData] = useState(null);
+
+    useLayoutEffect(() => {
+        const isAuth = typeof isAuthenticated === 'function' ? isAuthenticated() : isAuthenticated;
+        if (!isAuth) {
+            redirect("/");
+        }
+    }, []);
 
     useEffect(() => {
         const fetchTripData = async () => {
