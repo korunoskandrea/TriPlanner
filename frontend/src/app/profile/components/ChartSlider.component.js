@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import PastTripsChart from "@/app/profile/components/PastTripsChart.component";
-import UpcomingTripsChart from "@/app/profile/components/UpcomingTripsChart.component";
-import InterestsDoughnutChart from "@/app/profile/components/InterestsChart.component";
+import {PastTripsChart} from "@/app/profile/components/PastTripsChart.component";
+import {UpcomingTripsChart} from "@/app/profile/components/UpcomingTripsChart.component";
+import {InterestsDoughnutChart} from "@/app/profile/components/InterestsChart.component";
+
 
 const charts = [
     { id: "pastTrips", title: "Past Trips", component: PastTripsChart },

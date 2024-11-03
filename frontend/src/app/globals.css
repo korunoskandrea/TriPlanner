@@ -90,7 +90,7 @@ nav {
     transition: color 0.3s;
     border-radius: 10px;
 }
-.auth-btn:hover, btn:hover {
+.auth-btn:hover, .btn:hover {
     border: none;
     color: #045149;
     background-color: #9ec5c6;
@@ -297,7 +297,7 @@ select:focus {
     height: 450px;
     width: 450px;
     margin: 0.05em auto; /* Center the globe */
-    background: #888 url(https://i.pinimg.com/564x/16/8a/a5/168aa51f2d59bc681cd2baa9cf48f811.jpg) 0 0 repeat;
+    background: #888 url("../../public/assets/spin.jpg") 0 0 repeat;
     border-radius: 50%;
     background-size: 630px;
     animation: rotate 4s linear infinite;

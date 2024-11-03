@@ -4,7 +4,7 @@ import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Toolti
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const PastTripsChart = ({ trips }) => {
+export function PastTripsChart({trips}) {
     const pastTrips = trips.filter(trip => new Date(trip.startDate) < new Date());
     const tripCountByMonth = Array(12).fill(0);
 
@@ -62,6 +62,4 @@ const PastTripsChart = ({ trips }) => {
             />
         </div>
     );
-};
-
-export default PastTripsChart;
+}

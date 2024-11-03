@@ -5,12 +5,11 @@ import { Chart as ChartJS, ArcElement, Title, Tooltip, Legend } from "chart.js";
 
 ChartJS.register(ArcElement, Title, Tooltip, Legend);
 
-const InterestsDoughnutChart = ({ trips }) => {
+export function InterestsDoughnutChart({trips}){
     if (!trips || trips.length === 0) {
         return <p>No trip data available.</p>;
     }
 
-    // Aggregate interests
     const interestCounts = trips.reduce((acc, trip) => {
         trip.interests.forEach(interest => {
             acc[interest] = (acc[interest] || 0) + 1;
@@ -18,7 +17,6 @@ const InterestsDoughnutChart = ({ trips }) => {
         return acc;
     }, {});
 
-    // Prepare data for the chart
     const labels = Object.keys(interestCounts);
     const data = Object.values(interestCounts);
 
@@ -42,6 +40,4 @@ const InterestsDoughnutChart = ({ trips }) => {
             <Doughnut data={chartData} />
         </div>
     );
-};
-
-export default InterestsDoughnutChart;
+}

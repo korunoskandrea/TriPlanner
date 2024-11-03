@@ -46,7 +46,7 @@ export default function PlanForm({onSubmit}) {
 
             <div>
                 <LocationInput
-                    location={location}
+                    // location={location}
                     onLocationChange={setLocation}
                 />
             </div>

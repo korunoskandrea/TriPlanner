@@ -46,7 +46,7 @@ export default function Navbar() {
     return (
         <nav>
             <ul className="list">
-                <Image src="/assets/travel-around-the-world.png" width={50} height={50} alt="Travel Logo" />
+                <Image src="/assets/travel-around-the-world.png" className="rotate" width={50} height={50} alt="Travel Logo" />
                 <h3 className="h3-navbar"> TriPlanner</h3>
                 {currentPath === "/login" ? (
                     <>
