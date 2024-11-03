@@ -4,7 +4,7 @@ import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Toolti
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-export function PastTripsChart({trips}) {
+export function PastTripsChart({ trips }) {
     const pastTrips = trips.filter(trip => new Date(trip.startDate) < new Date());
     const tripCountByMonth = Array(12).fill(0);
 
@@ -21,14 +21,15 @@ export function PastTripsChart({trips}) {
             return;
         }
 
-        const monthIndex = (tripMonth - currentMonth + 12) % 12;
-        tripCountByMonth[monthIndex] += 1;
+        const monthIndex = (currentMonth - tripMonth + 12) % 12;
+        tripCountByMonth[11 - monthIndex] += 1;  // Place count in the last 12 months, ending with current
     });
 
     const labels = [];
-    for (let i = 0; i < 12; i++) {
-        const monthIndex = (currentMonth + i) % 12;
-        labels.push(new Date(currentYear, monthIndex).toLocaleString('default', { month: 'long' }));
+    for (let i = 11; i >= 0; i--) {
+        const monthIndex = (currentMonth - i + 12) % 12;
+        const yearOffset = currentMonth - i < 0 ? -1 : 0;
+        labels.push(new Date(currentYear + yearOffset, monthIndex).toLocaleString('default', { month: 'long' }));
     }
 
     const totalPastTrips = pastTrips.length;
