@@ -1,11 +1,12 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import TripCard from "@/app/common/components/TripCard.component";
+import ChartSlider from "@/app/profile/components/ChartSlider.component";
 
-export function ProfilePage(){
+export function ProfilePage() {
     const [userData, setUserData] = useState(null);
 
-    useEffect(()=>{
+    useEffect(() => {
         const fetchUserProfile = async () => {
             try {
                 const token = localStorage.getItem("token");
@@ -13,11 +14,13 @@ export function ProfilePage(){
                     headers: { 'Authorization': `Bearer ${token}` },
                 });
 
-                if (!response){
+                if (!response) {
                     throw new Error("Error fetching user data");
                 }
                 setUserData(response.data);
-            } catch (error) {}
+            } catch (error) {
+                console.error(error);
+            }
         };
         fetchUserProfile();
     }, []);
@@ -27,29 +30,38 @@ export function ProfilePage(){
     const formatDate = (dateString) => {
         const date = new Date(dateString);
         const day = String(date.getDate()).padStart(2, '0');
-        const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+        const month = String(date.getMonth() + 1).padStart(2, '0');
         const year = date.getFullYear();
         return `${day}.${month}.${year}`;
     };
 
+    const sortedTrips = [...userData.trips].sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
+
     return (
-        <div className="container mt-5">
-            <div className="card p-4 shadow-sm">
-                <h2 className="mb-4 text-center">Profile</h2>
-                <div className="mb-3">
-                    <p><strong>Name:</strong> {userData.name}</p>
-                    <p><strong>Last Name:</strong> {userData.lastName}</p>
-                    <p><strong>Birthday:</strong> {formatDate(userData.birthday)}</p>
-                    <p><strong>Email:</strong> {userData.email}</p>
-                </div>
-                <h3 className="mt-4">Trips</h3>
-                <div className="row">
-                    {userData.trips.map((trip, index) => (
-                        <div key={index} className="col-md-6 mb-4">
-                            <TripCard tripData={trip} />
+        <div className="profile-container">
+            <div className="profile-flex-container" >
+                <div className="profile-card-container">
+                    <div className="profile-card">
+                        <h2>Profile</h2>
+                        <div>
+                            <p><strong>Name:</strong> {userData.name}</p>
+                            <p><strong>Last Name:</strong> {userData.lastName}</p>
+                            <p><strong>Birthday:</strong> {formatDate(userData.birthday)}</p>
+                            <p><strong>Email:</strong> {userData.email}</p>
                         </div>
-                    ))}
+                    </div>
                 </div>
+
+                <ChartSlider trips={sortedTrips}/>
+            </div>
+
+            <h2>All Trips</h2>
+            <div className="trips-container">
+                {sortedTrips.map((trip, index) => (
+                    <div className="trip-card" key={index}>
+                        <TripCard tripData={trip}/>
+                    </div>
+                ))}
             </div>
         </div>
     );

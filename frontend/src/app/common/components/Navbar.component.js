@@ -38,6 +38,10 @@ export default function Navbar() {
         event.preventDefault();
         router.push("/profile");
     }
+    const handleToPlanTrip = (event) => {
+        event.preventDefault();
+        router.push("/trip/plan");
+    }
 
     return (
         <nav>
@@ -52,8 +56,9 @@ export default function Navbar() {
                 ) : (
                     isAuthenticated ? (
                         <>
-                            <li><button className="nav-buttons" onClick={handleToProfile}>Profile</button></li>
                             <li><button className="nav-buttons" onClick={handleToHome}>Home</button></li>
+                            <li><button className="nav-buttons" onClick={handleToProfile}>Profile</button></li>
+                            <li><button className="nav-buttons" onClick={handleToPlanTrip}>Plan Trip</button></li>
                             <li><button className="nav-buttons" onClick={handleLogout}>Log out</button></li>
                         </>
                     ) : (

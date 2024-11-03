@@ -3,7 +3,10 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import axios from "axios";
 
+let idCounter = 0;
+
 export default function Map({ location }) {
+  const id = idCounter++;
   const [coords, setCoords] = useState({ lat: null, lng: null });
 
   useEffect(() => {
@@ -33,12 +36,12 @@ export default function Map({ location }) {
 
   useEffect(() => {
     if (coords.lat && coords.lng) {
-      const container = L.DomUtil.get("map");
+      const container = L.DomUtil.get(id.toString());
 
       if (container != null) {
         container._leaflet_id = null;
       }
-      const map = L.map("map").setView([coords.lat, coords.lng], 15);
+      const map = L.map(id.toString()).setView([coords.lat, coords.lng], 15);
       L.tileLayer(
         "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
         {
@@ -60,5 +63,5 @@ export default function Map({ location }) {
     }
   }, [coords]);
 
-  return <div id="map" style={{ height: "100vh" }}></div>;
+  return <div className="map" id={id.toString()} ></div>;
 }

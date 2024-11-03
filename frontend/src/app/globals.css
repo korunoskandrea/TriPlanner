@@ -7,6 +7,7 @@ body {
 }
 nav {
     position: fixed;
+    z-index: 1000;
     top: 0;
     left: 0;
     width: 100%;
@@ -76,7 +77,7 @@ nav {
     box-shadow: 0 5px 7px rgba(0, 0, 0, 0.1);
 }
 
-.auth-btn {
+.auth-btn, .btn {
     border: none;
     color: #9ec5c6;
     background-color: #045149;
@@ -86,7 +87,7 @@ nav {
     transition: color 0.3s;
     border-radius: 10px;
 }
-.auth-btn:hover {
+.auth-btn:hover, btn:hover {
     border: none;
     color: #045149;
     background-color: #9ec5c6;
@@ -95,18 +96,119 @@ nav {
     padding: 10px;
     transition: color 0.3s;
     border-radius: 10px;
+    gap: 5px;
 }
 .error-message {
     color: red;
     margin-bottom: 10px;
 }
 
+.map {
+    height: 500px;
+}
+
+/* ProfilePage.module.css */
+.profile-flex-container {
+    margin: 50px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.chart-container {
+    max-width: 400px;
+    margin-top: 100px;
+}
+
+.profile-card {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.charts-container {
+    width: 100%;
+    position: relative;
+}
+
+.chart-container {
+    transition: transform 0.9s ease;
+}
+
+.profile-card-container {
+    flex: 1;
+}
+
+.profile-card {
+    font-size: 20px;
+    max-width: 400px;
+    align-self: end;
+    margin: 10% auto; ;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #bfdbdd;
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.1);
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.trips-container {
+    width: 100%;
+    max-width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.trip-card {
+    background-color: #e6eaef;;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+}
+
+/*Chart sliders components*/
+.chart-slider {
+    position: relative;
+    overflow: hidden;
+    flex: 1;
+}
+
+.charts-container {
+    display: flex;
+    flex-direction: row;
+    transition: transform 0.5s ease;
+    width: 100%;
+}
+
+.chart-item {
+    flex: 0 0 100%;
+    min-width: 400px;
+    height: 300px;
+    margin-top: 80px;
+}
+
+.chart-controls {
+    margin-top: 20px;
+}
+
+
+
 
 /* Main container styles */
 .container {
     padding: 20px;
     max-width: 800px;
-    margin: 50px auto; /* Center the container with margin */
+    margin: 50px auto;
     background-color: #fff; /* White background for the container */
     border-radius: 8px; /* Rounded corners */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */

@@ -20,24 +20,16 @@ export default function TripCard({ tripData }) {
     return (
         <div className="card mb-3">
             <div className="card-body">
-                <h5 className="card-title">
+                <h2 className="card-title">
                     {isPastEvent ? "Past Event" : "Upcoming Event"}
-                </h5>
-                <p className="card-text"><strong>Trip Type:</strong> {tripData.tripType}</p>
-                <p className="card-text"><strong>Group Size:</strong> {tripData.groupSize}</p>
-                <p className="card-text"><strong>Location:</strong> {tripData.location}</p>
-                <p className="card-text"><strong>Interests:</strong> {tripData.interests.join(", ")}</p>
-                <p className="card-text"><strong>Start Date:</strong> {formatDate(tripData.startDate)}</p>
-                <p className="card-text"><strong>End Date:</strong> {formatDate(tripData.endDate)}</p>
-                <div className="mb-3">
-                    <textarea
-                        className="form-control"
-                        value={tripData.notes}
-                        readOnly={true}
-                        placeholder="Add your notes here"
-                        rows={3}
-                    />
-                </div>
+                </h2>
+                <p><strong>Trip Type:</strong> {tripData.tripType}</p>
+                <p><strong>Group Size:</strong> {tripData.groupSize}</p>
+                <p><strong>Location:</strong> {tripData.location}</p>
+                <p><strong>Interests:</strong> {tripData.interests.join(", ")}</p>
+                <p><strong>Start Date:</strong> {formatDate(tripData.startDate)}</p>
+                <p><strong>End Date:</strong> {formatDate(tripData.endDate)}</p>
+                {tripData.notes && <p><strong>Notes:</strong> {tripData.notes}</p>}
                 <Map location={tripData.location} />
             </div>
         </div>
