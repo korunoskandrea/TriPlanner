@@ -5,6 +5,7 @@ body {
     font-size: 0;
     font-family: Helvetica, Verdana, sans-serif;
 }
+
 nav {
     position: fixed;
     z-index: 1000;
@@ -38,8 +39,6 @@ nav {
 }
 
 .nav-buttons:hover {
-    background-color: transparent;
-    color: #003a37;
     font-size: 23px;
 }
 
@@ -63,6 +62,7 @@ nav {
     @media (min-width: 640px) {
         display: flex;
     }
+
     li {
         margin-left: 20px;
     }
@@ -71,7 +71,7 @@ nav {
 /* Login Register Plan form styles */
 .login-form, .register-form, .plan-form {
     max-width: 400px;
-    margin: 15% auto; ;
+    margin: 15% auto;;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -79,7 +79,7 @@ nav {
     box-shadow: 0 5px 7px rgba(0, 0, 0, 0.1);
 }
 
-.auth-btn, .btn {
+.auth-btn {
     margin: 10px;
     border: none;
     color: #f0f8f8;
@@ -90,16 +90,30 @@ nav {
     transition: color 0.3s;
     border-radius: 10px;
 }
+
 .auth-btn:hover {
-    border: none;
     color: #045149;
     background-color: #9ec5c6;
+}
+
+.classic-btn {
+    margin: 10px;
+    border: none;
+    color: #f0f8f8;
+    background-color: #045149;
     font-size: 17px;
     cursor: pointer;
     padding: 10px;
     transition: color 0.3s;
     border-radius: 10px;
 }
+
+.classic-btn:hover {
+    color: #045149;
+    background-color: #9ec5c6;
+}
+
+
 .error-message {
     color: red;
     margin-bottom: 10px;
@@ -147,7 +161,7 @@ nav {
     font-size: 20px;
     max-width: 400px;
     align-self: end;
-    margin: 10% auto; ;
+    margin: 10% auto;;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -191,7 +205,7 @@ nav {
         transform: translateY(0);
     }
     30% {
-        transform: translateY(-10px);
+        transform: translateY(-5px);
     }
     50% {
         transform: translateY(0);
@@ -232,7 +246,7 @@ nav {
 /*Plan Page*/
 .plan-form {
     max-width: 500px;
-    margin: 10% auto; ;
+    margin: 10% auto;;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 8px;

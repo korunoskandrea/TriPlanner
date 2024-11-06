@@ -5,6 +5,7 @@ import ChartSlider from "@/app/profile/components/ChartSlider.component";
 
 export function ProfilePage() {
     const [userData, setUserData] = useState(null);
+    const [trips, setTrips] = useState([]);
 
     useEffect(() => {
         const fetchUserProfile = async () => {
@@ -18,12 +19,17 @@ export function ProfilePage() {
                     throw new Error("Error fetching user data");
                 }
                 setUserData(response.data);
+                setTrips(response.data.trips); // Set trips here
             } catch (error) {
                 console.error(error);
             }
         };
         fetchUserProfile();
     }, []);
+
+    const handleDeleteSuccess = (deletedTripId) => {
+        setTrips((prevTrips) => prevTrips.filter(trip => trip._id !== deletedTripId));
+    };
 
     if (!userData) return <div>Loading...</div>;
 
@@ -35,7 +41,7 @@ export function ProfilePage() {
         return `${day}.${month}.${year}`;
     };
 
-    const sortedTrips = [...userData.trips].sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
+    const sortedTrips = [...trips].sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
 
     return (
         <div className="profile-container">
@@ -57,9 +63,9 @@ export function ProfilePage() {
 
             <h2>All Trips</h2>
             <div className="trips-container">
-                {sortedTrips.map((trip, index) => (
-                    <div className="trip-card" key={index}>
-                        <TripCard tripData={trip}/>
+                {sortedTrips.map((trip) => (
+                    <div className="trip-card" key={trip._id}>
+                        <TripCard tripData={trip} onDeleteSuccess={handleDeleteSuccess}/>
                     </div>
                 ))}
             </div>

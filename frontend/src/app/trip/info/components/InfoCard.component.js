@@ -1,10 +1,8 @@
 import { redirect, useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import { isAuthenticated } from "@/app/utils/auth";
 import axios from "axios";
 import TripCard from "@/app/common/components/TripCard.component";
-import Map from "@/app/trip/info/components/Map.component";
-// Import your Map component
+
 
 export default function InfoCard() {
     const router = useRouter();
@@ -43,7 +41,7 @@ export default function InfoCard() {
             <div className="info-card">
                     <TripCard tripData={tripData} />
             </div>
-            <button onClick={navigateToProfile} className="auth-btn">
+            <button onClick={navigateToProfile} className="classic-btn">
                 Visit your Profile
             </button>
         </div>

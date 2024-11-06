@@ -81,7 +81,7 @@ export default function PlanForm({onSubmit}) {
                 />
             </div>
 
-            <button type="submit" className="btn">
+            <button type="submit" className="classic-btn">
                 Info for the Trip
             </button>
         </form>

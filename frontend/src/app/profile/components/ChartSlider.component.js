@@ -31,8 +31,8 @@ const ChartSlider = ({ trips }) => {
                 ))}
             </div>
             <div className="chart-controls">
-                <button className="btn" onClick={handlePrev} disabled={currentChartIndex === 0}>&lt;</button>
-                <button className="btn" onClick={handleNext} disabled={currentChartIndex === charts.length - 1}>&gt;</button>
+                <button className="classic-btn" onClick={handlePrev} disabled={currentChartIndex === 0}>&lt;</button>
+                <button className="classic-btn" onClick={handleNext} disabled={currentChartIndex === charts.length - 1}>&gt;</button>
             </div>
         </div>
     );
