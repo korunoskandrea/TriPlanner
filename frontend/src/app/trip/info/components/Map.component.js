@@ -41,27 +41,45 @@ export default function Map({ location }) {
       if (container != null) {
         container._leaflet_id = null;
       }
-      const map = L.map(id.toString()).setView([coords.lat, coords.lng], 15);
+      const map = L.map(id.toString(), {
+        center: [coords.lat, coords.lng],
+        zoom: 15,
+        zoomControl: false,
+        attributionControl: false,
+
+      });
+
       L.tileLayer(
-        "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
-        {
-          attribution:
-            'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery Â© <a href="https://www.mapbox.com/">Mapbox</a>',
-          maxZoom: 18,
-          id: "mapbox/streets-v11",
-          tileSize: 512,
-          zoomOffset: -1,
-          accessToken:
-            "pk.eyJ1IjoidGFyLWhlbCIsImEiOiJjbDJnYWRieGMwMTlrM2luenIzMzZwbGJ2In0.RQRMAJqClc4qoNwROT8Umg",
-        }
+          "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
+          {
+            attribution:
+                'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery Â© <a href="https://www.mapbox.com/">Mapbox</a>',
+            maxZoom: 18,
+            id: "mapbox/streets-v11",
+            tileSize: 512,
+            zoomOffset: -1,
+            accessToken:
+                "pk.eyJ1IjoidGFyLWhlbCIsImEiOiJjbDJnYWRieGMwMTlrM2luenIzMzZwbGJ2In0.RQRMAJqClc4qoNwROT8Umg",
+          }
       ).addTo(map);
 
-      L.marker([coords.lat, coords.lng])
-        .addTo(map)
-        .bindPopup(`Location: ${location}`)
-        .openPopup();
+      const transparentIcon = new L.Icon({
+        iconUrl: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/wcAAwAB/8bFZ4cAAAAASUVORK5CYII=', // 1x1 transparent PNG
+        iconSize: [0, 0],
+        iconAnchor: [0, 0],
+        popupAnchor: [0, 0],
+        shadowUrl: null,
+        shadowSize: [0, 0],
+        shadowAnchor: [0, 0],
+      });
+
+      L.marker([coords.lat, coords.lng], { icon: transparentIcon })
+          .addTo(map)
+          .bindPopup(`<span class="popup-location">${location}</span>`)
+          .openPopup();
     }
   }, [coords]);
+
 
   return <div className="map" id={id.toString()} ></div>;
 }
