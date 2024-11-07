@@ -44,31 +44,35 @@ export default function Navbar() {
     }
 
     return (
-        <nav>
-            <ul className="list">
-                <Image src="/assets/travel-around-the-world.png" className="rotate" width={50} height={50} alt="Travel Logo" />
-                <h3 className="h3-navbar"> TriPlanner</h3>
-                {currentPath === "/login" ? (
-                    <>
-                        <li><button className="nav-buttons" onClick={handleToHome}>Home</button></li>
-                        <li><button className="nav-buttons" onClick={handleToRegister}>Register</button></li>
-                    </>
-                ) : (
-                    isAuthenticated ? (
+        <nav className="navbar">
+            <div className="navbar-container">
+                <div className="logo">
+                    <Image src="/assets/travel-around-the-world.png" className="rotate" width={50} height={50} alt="Travel Logo" />
+                    <h3 className="navbar-title">TriPlanner</h3>
+                </div>
+                <ul className="nav-links">
+                    {currentPath === "/login" ? (
                         <>
-                            <li><button className="nav-buttons" onClick={handleToHome}>Home</button></li>
-                            <li><button className="nav-buttons" onClick={handleToProfile}>Profile</button></li>
-                            <li><button className="nav-buttons" onClick={handleToPlanTrip}>Plan Trip</button></li>
-                            <li><button className="nav-buttons" onClick={handleLogout}>Log out</button></li>
+                            <li><button className="nav-button" onClick={handleToHome}>Home</button></li>
+                            <li><button className="nav-button" onClick={handleToRegister}>Register</button></li>
                         </>
                     ) : (
-                        <>
-                            <li><button className="nav-buttons" onClick={handleToLogIn}>Login</button></li>
-                            <li><button className="nav-buttons" onClick={handleToRegister}>Register</button></li>
-                        </>
-                    )
-                )}
-            </ul>
+                        isAuthenticated ? (
+                            <>
+                                <li><button className="nav-button" onClick={handleToHome}>Home</button></li>
+                                <li><button className="nav-button" onClick={handleToProfile}>Profile</button></li>
+                                <li><button className="nav-button" onClick={handleToPlanTrip}>Plan Trip</button></li>
+                                <li><button className="nav-button" onClick={handleLogout}>Log out</button></li>
+                            </>
+                        ) : (
+                            <>
+                                <li><button className="nav-button" onClick={handleToLogIn}>Login</button></li>
+                                <li><button className="nav-button" onClick={handleToRegister}>Register</button></li>
+                            </>
+                        )
+                    )}
+                </ul>
+            </div>
         </nav>
     );
 }

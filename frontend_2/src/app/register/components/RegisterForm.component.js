@@ -1,10 +1,11 @@
-import {useEffect, useState} from "react";
+"use client";
+
+import { useState } from "react";
 import InputField from "@/app/common/components/InputField.component";
 import AuthSubmitBtnComponent from "@/app/common/components/AuthSubmitBtn.component";
-import {useRouter} from "next/navigation";
-import {router} from "next/client"; // Use this for Next.js 13+
+import { useRouter } from "next/navigation";
 
-export default function RegisterForm({onSubmit}) {
+export default function RegisterForm({ onSubmit }) {
     const [name, setName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
@@ -14,27 +15,32 @@ export default function RegisterForm({onSubmit}) {
     const [loading, setLoading] = useState(false);
     const router = useRouter();
 
-    const handleRegister = (event) => {
+    const handleRegister = async (event) => {
         event.preventDefault();
         setError('');
         setLoading(true);
 
-        onSubmit({
-            name: name,
-            lastName: lastName,
-            email: email,
-            password: password,
-            birthday: birthday
-        });
-
-        router.push("/login")
-
-    }
+        try {
+            await onSubmit({
+                name,
+                lastName,
+                email,
+                password,
+                birthday
+            });
+            router.push("/login");
+        } catch (err) {
+            setError('An error occurred during registration. Please try again.');
+        } finally {
+            setLoading(false);
+        }
+    };
 
     return (
-        <form onSubmit={handleRegister} className="register-form">
-            <h2>Register</h2>
-            <div>
+        <form onSubmit={handleRegister} className="auth-form">
+            <h2 className="form-title">Register</h2>
+            {error && <div className="error-message">{error}</div>}
+            <div className="form-group">
                 <InputField
                     label="Name"
                     type="text"
@@ -42,7 +48,7 @@ export default function RegisterForm({onSubmit}) {
                     onChange={(event) => setName(event.target.value)}
                 />
             </div>
-            <div>
+            <div className="form-group">
                 <InputField
                     label="Last Name"
                     type="text"
@@ -50,7 +56,7 @@ export default function RegisterForm({onSubmit}) {
                     onChange={(event) => setLastName(event.target.value)}
                 />
             </div>
-            <div>
+            <div className="form-group">
                 <InputField
                     label="Email"
                     type="email"
@@ -58,7 +64,7 @@ export default function RegisterForm({onSubmit}) {
                     onChange={(event) => setEmail(event.target.value)}
                 />
             </div>
-            <div>
+            <div className="form-group">
                 <InputField
                     label="Password"
                     type="password"
@@ -66,7 +72,7 @@ export default function RegisterForm({onSubmit}) {
                     onChange={(event) => setPassword(event.target.value)}
                 />
             </div>
-            <div>
+            <div className="form-group">
                 <InputField
                     label="Birthday"
                     type="date"
@@ -74,8 +80,13 @@ export default function RegisterForm({onSubmit}) {
                     onChange={(event) => setBirthday(event.target.value)}
                 />
             </div>
-            <AuthSubmitBtnComponent label={loading ? "Registering..." : "Register"} onClick={handleRegister}
-                                    disabled={loading}/>
+            <div className="form-group">
+                <AuthSubmitBtnComponent
+                    label={loading ? "Registering..." : "Register"}
+                    onClick={handleRegister}
+                    disabled={loading}
+                />
+            </div>
         </form>
     );
 }

@@ -42,7 +42,6 @@ export function PlanPage() {
 
     return (
         <>
-            <Navbar/>
             <PlanForm onSubmit={handlePlan}/>
         </>
 

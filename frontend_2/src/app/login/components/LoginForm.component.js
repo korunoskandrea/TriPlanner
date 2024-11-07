@@ -31,10 +31,10 @@ export default function LoginForm({ onSubmit }) {
     };
 
     return (
-        <form onSubmit={handleLogin} className="login-form">
-            <h2>Log In</h2>
+        <form onSubmit={handleLogin} className="auth-form">
+            <h2 className="form-title">Log In</h2>
             {error && <div className="error-message">{error}</div>}
-            <div>
+            <div className="form-group">
                 <InputField
                     label="Email"
                     type="email"
@@ -42,7 +42,7 @@ export default function LoginForm({ onSubmit }) {
                     onChange={(event) => setEmail(event.target.value)}
                 />
             </div>
-            <div>
+            <div className="form-group">
                 <InputField
                     label="Password"
                     type="password"
@@ -50,7 +50,13 @@ export default function LoginForm({ onSubmit }) {
                     onChange={(event) => setPassword(event.target.value)}
                 />
             </div>
-            <AuthSubmitBtnComponent label={loading ? "Logging in..." : "Log in"} onClick={handleLogin} disabled={loading} />
+            <div className="form-group">
+                <AuthSubmitBtnComponent
+                    label={loading ? "Logging in..." : "Log in"}
+                    onClick={handleLogin}
+                    disabled={loading}
+                />
+            </div>
         </form>
     );
 }

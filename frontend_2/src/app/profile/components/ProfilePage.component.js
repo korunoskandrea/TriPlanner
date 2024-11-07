@@ -43,9 +43,13 @@ export function ProfilePage() {
 
     const sortedTrips = [...trips].sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
 
+    // Separate past and upcoming trips
+    const pastTrips = sortedTrips.filter((trip) => new Date(trip.endDate) < new Date());
+    const upcomingTrips = sortedTrips.filter((trip) => new Date(trip.startDate) >= new Date());
+
     return (
         <div className="profile-container">
-            <div className="profile-flex-container" >
+            <div className="profile-flex-container">
                 <div className="profile-card-container">
                     <div className="profile-card">
                         <h2>Profile</h2>
@@ -58,16 +62,33 @@ export function ProfilePage() {
                     </div>
                 </div>
 
-                <ChartSlider trips={sortedTrips}/>
+                <ChartSlider trips={sortedTrips} />
             </div>
 
-            <h2>All Trips</h2>
-            <div className="trips-container">
-                {sortedTrips.map((trip) => (
-                    <div className="trip-card" key={trip._id}>
-                        <TripCard tripData={trip} onDeleteSuccess={handleDeleteSuccess}/>
+            <h2>Past Trips</h2>
+            <div className="past-trips-container">
+                {pastTrips.length === 0 ? (
+                    <p>No past trips</p>
+                ) : (
+                    <div className="horizontal-scroll">
+                        {pastTrips.map((trip) => (
+                            <TripCard tripData={trip} key={trip._id} onDeleteSuccess={handleDeleteSuccess} />
+                        ))}
                     </div>
-                ))}
+                )}
+            </div>
+
+            <h2>Upcoming Trips</h2>
+            <div className="upcoming-trips-container">
+                {upcomingTrips.length === 0 ? (
+                    <p>No upcoming trips</p>
+                ) : (
+                    <div className="horizontal-scroll">
+                        {upcomingTrips.map((trip) => (
+                            <TripCard tripData={trip} key={trip._id} onDeleteSuccess={handleDeleteSuccess} />
+                        ))}
+                    </div>
+                )}
             </div>
         </div>
     );

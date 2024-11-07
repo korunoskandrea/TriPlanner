@@ -37,13 +37,13 @@ export function UpcomingTripsChart({trips}) {
         datasets: [{
             label: 'Upcoming Trips Count',
             data: tripCountByMonth,
-            backgroundColor: '#9ec5c6',
-            borderColor: '#21664d',
+            backgroundColor: '#c84b31',
+            borderColor: '#2d4263',
         }],
     };
 
     return (
-        <div style={{ width: '400px', height: '300px' }}>
+        <div style={{ width: '500px', height: '300px' }}>
             <Bar
                 data={data}
                 options={{

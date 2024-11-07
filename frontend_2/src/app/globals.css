@@ -1,58 +1,9 @@
-/* Navbar styles */
-body {
-    margin: 0;
-    min-height: 200vh;
-    font-size: 0;
-    font-family: Helvetica, Verdana, sans-serif;
-}
-
-nav {
-    position: fixed;
-    z-index: 1000;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 16px 20px 30px 20px;
-    display: flex;
-    align-items: center;
-    transition: 0.3s ease-out;
-    backdrop-filter: blur(8px) brightness(1.2);
-    -webkit-backdrop-filter: blur(8px) brightness(1.2);
-    box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.18);
-    color: white;
-    background-color: #bfdbdd;
-    font-size: 16px;
-
-    @media (min-width: 640px) {
-        padding: 16px 50px 30px 50px;
-    }
-}
-
-.nav-buttons {
-    background-color: transparent;
-    border: none;
-    color: #003a37;
-    font-size: 20px;
-    cursor: pointer;
-    padding: 10px;
-    transition: font-size 0.3s ease;
-}
-
-.nav-buttons:hover {
-    font-size: 23px;
-}
 
 
-.list {
-    display: flex;
-    align-items: center;
-}
-
-
-.h3-navbar, h1, h2, h3 {
-    color: #003a37;
+ h1, h3 {
     text-align: center;
-
+    margin: 10px;
+    padding: 10px;
 }
 
 .list {
@@ -67,82 +18,16 @@ nav {
         margin-left: 20px;
     }
 }
-
-/* Login Register Plan form styles */
-.login-form, .register-form, .plan-form {
-    max-width: 400px;
-    margin: 15% auto;;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #bfdbdd;
-    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.1);
-}
-
-.auth-btn {
-    margin: 10px;
-    border: none;
-    color: #f0f8f8;
-    background-color: #045149;
-    font-size: 17px;
-    cursor: pointer;
-    padding: 10px;
-    transition: color 0.3s;
-    border-radius: 10px;
-}
-
-.auth-btn:hover {
-    color: #045149;
-    background-color: #9ec5c6;
-}
-
-.classic-btn {
-    margin: 10px;
-    border: none;
-    color: #f0f8f8;
-    background-color: #045149;
-    font-size: 17px;
-    cursor: pointer;
-    padding: 10px;
-    transition: color 0.3s;
-    border-radius: 10px;
-}
-
-.classic-btn:hover {
-    color: #045149;
-    background-color: #9ec5c6;
-}
-
-
-.error-message {
-    color: red;
-    margin-bottom: 10px;
-}
-
 .map {
     height: 500px;
 }
 
-/* ProfilePage.module.css */
-.profile-flex-container {
-    margin: 50px 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 20px;
-}
 
 .chart-container {
     max-width: 400px;
     margin-top: 100px;
 }
 
-.profile-card {
-    flex: 1;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
 
 .charts-container {
     width: 100%;
@@ -165,17 +50,11 @@ nav {
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 8px;
-    background-color: #bfdbdd;
+    background-color: #ecdbba;
     box-shadow: 0 5px 7px rgba(0, 0, 0, 0.1);
 }
 
-.profile-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-}
+
 
 .trips-container {
     width: 100%;
@@ -196,27 +75,6 @@ nav {
     transition: transform 0.3s ease-in-out;
 }
 
-.card-body:hover {
-    animation: bounce 0.6s ease-in-out;
-}
-
-@keyframes bounce {
-    0% {
-        transform: translateY(0);
-    }
-    30% {
-        transform: translateY(-5px);
-    }
-    50% {
-        transform: translateY(0);
-    }
-    70% {
-        transform: translateY(-5px);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
 
 /*Chart sliders components*/
 .chart-slider {
@@ -240,7 +98,10 @@ nav {
 }
 
 .chart-controls {
+    display: flex;
+    gap: 10px;
     margin-top: 20px;
+    max-width: 10px;
 }
 
 /*Plan Page*/
@@ -310,21 +171,31 @@ select:focus {
     background: #888 url("../../public/assets/spin.jpg") 0 0 repeat;
     border-radius: 50%;
     background-size: 630px;
-    animation: rotate 4s linear infinite;
+    animation: bounce 2s ease-in-out infinite; /* Adjusted animation for bounce */
     transition: transform 200ms linear;
     transform-style: preserve-3d;
     box-shadow: inset 20px 0 65px 6px rgba(0, 0, 0, 0.38);
     color: #000;
 }
 
-@keyframes rotate {
+@keyframes bounce {
     0% {
-        background-position: 0 0;
+        transform: translateY(0); /* Start at the original position */
+    }
+    25% {
+        transform: translateY(-20px); /* Move up */
+    }
+    50% {
+        transform: translateY(0); /* Go back to the original position */
+    }
+    75% {
+        transform: translateY(-10px); /* Move slightly up */
     }
     100% {
-        background-position: 630px;
+        transform: translateY(0); /* Go back to the original position */
     }
 }
+
 
 .info-container {
     margin-top: 10%;
@@ -349,7 +220,7 @@ select:focus {
 .popup-location {
     font-size: 17px;
     font-weight: bold;
-    color: #045149;
+    color: #c84b31;
 }
 
 /* InsertSelector.css */
@@ -576,3 +447,459 @@ legend {
     box-shadow: 0px 0px 5px #2d4263;
 }
 
+/* Navbar.css */
+
+/* Navbar container */
+.navbar {
+    background-color: #c84b31;
+    color: #191919;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+}
+
+/* Navbar inner container to center content */
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    align-items: center;
+}
+
+/* Logo and title */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.rotate {
+    animation: rotate 10s infinite linear;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.navbar-title {
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Navbar links container */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Individual button style */
+.nav-button {
+    background-color: #ecdbba;
+    color: #c84b31;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-button:hover {
+    background-color: rgba(236, 219, 186, 0.71);
+    transform: scale(1.05);
+}
+
+.nav-button:focus {
+    outline: none;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .navbar-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .logo {
+        margin-bottom: 15px;
+    }
+}
+
+/* LoginForm.css */
+
+/* Form container */
+.auth-form {
+    background-color: #ecdbba;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Title styling */
+.form-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #191919;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form group styling (for spacing between input fields) */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Error message */
+.error-message {
+    color: #d9534f;
+    background-color: #f2dede;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+/* Input field styling */
+input[type="email"],
+input[type="password"] {
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+/* Focused input fields */
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #2d4263;
+    outline: none;
+}
+
+/* Submit button */
+button {
+    background-color: #c84b31;
+    color: #ecdbba;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+}
+
+button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+    background-color: #c84b31;
+    transform: scale(1.05);
+}
+
+/* PlanForm.css */
+
+/* Form container */
+.plan-form {
+    background-color: #ecdbba;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Title styling */
+.form-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form row layout */
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* Section for individual form elements */
+.form-row > div {
+    flex: 1 1 48%;  /* Allow elements to take up 48% of the row */
+}
+
+/* Responsive styling for mobile devices */
+@media (max-width: 768px) {
+    .form-row > div {
+        flex: 1 1 100%; /* Stack elements in a single column on small screens */
+    }
+
+    .form-title {
+        font-size: 1.5rem;
+    }
+
+    .plan-form {
+        padding: 15px;
+    }
+
+    button.classic-btn {
+        width: 100%;
+
+    }
+}
+
+/* Button Styling */
+button.classic-btn {
+    background-color: #c84b31;
+    color: #ecdbba;
+    border: none;
+    padding: 10px 15px;  /* Adjust padding to allow flexibility */
+    border-radius: 5px;
+    font-size: 2rem; /* Font size will control the button size */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-flex; /* Allows button to adjust to content size */
+    align-items: center;
+    justify-content: center;
+    height: auto;  /* Ensures height adjusts based on text */
+}
+
+button.classic-btn:hover {
+    background-color: #d96852; /* Example hover effect */
+    transform: scale(1.05);  /* Slightly increase size on hover */
+}
+
+button.classic-btn:disabled {
+    background-color: #a04b37; /* Disabled state color */
+    cursor: not-allowed;
+}
+
+/* TripCard.css */
+
+/* Main container for the trip card */
+.trip-card {
+    background-color: #ecdbba;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Title styling */
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Container for the trip information */
+.card-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* Left column (Trip type, Group size, Location, Interests) */
+.info-left {
+    flex: 1;
+    min-width: 200px; /* Ensures it takes up some width */
+}
+
+/* Right column (Dates, Notes) */
+.info-right {
+    flex: 1;
+    min-width: 200px;
+}
+
+/* Map container styling */
+.map {
+    position: relative;
+    width: 100%;
+    height: 200px; /* Reduced the height to make the map smaller */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure map resizes correctly with the parent container */
+.map iframe {
+    width: 100%;
+    height: 100%;
+}
+
+/* Optional: Style for the popup location text */
+.popup-location {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Make the map responsive */
+@media (max-width: 768px) {
+    .map {
+        height: 150px; /* Further reduce the height for smaller screens */
+    }
+}
+
+.profile-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.profile-card-container {
+    width: 30%;
+}
+
+.profile-card {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.trips-container,
+.past-trips-container,
+.upcoming-trips-container {
+    margin-bottom: 30px;
+}
+
+.past-trips-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 30px;
+    padding-bottom: 10px;
+}
+
+.horizontal-scroll {
+    display: flex;
+    gap: 30px;
+    padding-bottom: 20px;
+}
+
+.trip-card {
+    width: 400px;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.trip-card:hover {
+    transform: translateY(-5px);
+}
+
+.upcoming-trips-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Increase min width for larger cards */
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.trip-card img {
+    width: 100%;
+    height: auto;
+}
+
+p {
+    margin: 5px 0;
+}
+
+/* For horizontal scroll behavior */
+.past-trips-container p {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+/* Styling for horizontal scrolling of trips */
+.horizontal-scroll {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 20px;
+    margin-top: 10px;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+    height: 8px;
+}
+
+.horizontal-scroll::-webkit-scrollbar-thumb {
+    background-color: #c84b31;
+    border-radius: 4px;
+}
+
+.horizontal-scroll::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+/* Styling for trip cards inside the horizontal scroll */
+.horizontal-scroll .trip-card {
+    flex-shrink: 0;
+    width: 300px; /* Adjust width of the trip card */
+    margin-right: 20px;
+}
+
+.trips-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    padding-left: 15px;
+}
+
+.profile-container {
+    padding: 30px;
+}
+
+/* If needed: Customize loading state */
+.loading {
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 50px;
+}

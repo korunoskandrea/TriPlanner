@@ -1,11 +1,11 @@
-import {useState} from "react";
+import { useState } from "react";
 import TripTypeSelectorComponent from "@/app/common/components/TripTypeSelector.component";
 import LocationInput from "@/app/common/components/LocationInput.component";
 import InterestSelector from "@/app/common/components/InterestSelector.component";
 import DatePicker from "@/app/common/components/DatePicker.component";
 import InputField from "@/app/common/components/InputField.component";
 
-export default function PlanForm({onSubmit}) {
+export default function PlanForm({ onSubmit }) {
     const [tripType, setTripType] = useState('alone');
     const [groupSize, setGroupSize] = useState('');
     const [location, setLocation] = useState('');
@@ -29,13 +29,14 @@ export default function PlanForm({onSubmit}) {
             endDate: endDate,
             notes: notes
         });
-    }
+    };
 
     return (
-        <form onSubmit={handlePlan} className="plan-form ">
-            <h2>Plan Your Trip</h2>
+        <form onSubmit={handlePlan} className="plan-form">
+            <h2 className="form-title">Plan Your Trip</h2>
 
-            <div>
+            {/* Trip Details Section */}
+            <div className="form-row">
                 <TripTypeSelectorComponent
                     tripType={tripType}
                     groupSize={groupSize}
@@ -44,14 +45,11 @@ export default function PlanForm({onSubmit}) {
                 />
             </div>
 
-            <div>
+            {/* Location & Interests Section */}
+            <div className="form-row">
                 <LocationInput
-                    // location={location}
                     onLocationChange={setLocation}
                 />
-            </div>
-
-            <div>
                 <InterestSelector
                     interests={interests}
                     onInterestChange={(e) => {
@@ -63,16 +61,14 @@ export default function PlanForm({onSubmit}) {
                 />
             </div>
 
-            <div>
+            {/* Dates & Notes Section */}
+            <div className="form-row">
                 <DatePicker
                     startDate={startDate}
                     endDate={endDate}
                     onStartDateChange={(e) => setStartDate(e.target.value)}
                     onEndDateChange={(e) => setEndDate(e.target.value)}
                 />
-            </div>
-
-            <div>
                 <InputField
                     label="Notes"
                     type="text"
@@ -81,9 +77,9 @@ export default function PlanForm({onSubmit}) {
                 />
             </div>
 
-            <button type="submit" className="classic-btn">
-                Info for the Trip
-            </button>
+            <div className="form-footer">
+                <button type="submit" className="classic-btn">Info for the Trip</button>
+            </div>
         </form>
     );
 }

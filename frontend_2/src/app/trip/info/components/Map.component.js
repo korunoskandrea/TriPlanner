@@ -13,9 +13,9 @@ export default function Map({ location }) {
     const fetchCoordinates = async () => {
       try {
         const response = await axios.get(
-          `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(
-            location
-          )}&format=json&apiKey=${process.env.NEXT_PUBLIC_REACT_APP_GEOAPIFY_API_KEY}`
+            `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(
+                location
+            )}&format=json&apiKey=${process.env.NEXT_PUBLIC_REACT_APP_GEOAPIFY_API_KEY}`
         );
         const result = response.data.results[0];
         if (result) {
@@ -41,12 +41,12 @@ export default function Map({ location }) {
       if (container != null) {
         container._leaflet_id = null;
       }
+
       const map = L.map(id.toString(), {
         center: [coords.lat, coords.lng],
-        zoom: 15,
+        zoom: 10,
         zoomControl: false,
         attributionControl: false,
-
       });
 
       L.tileLayer(
@@ -64,7 +64,8 @@ export default function Map({ location }) {
       ).addTo(map);
 
       const transparentIcon = new L.Icon({
-        iconUrl: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/wcAAwAB/8bFZ4cAAAAASUVORK5CYII=', // 1x1 transparent PNG
+        iconUrl:
+            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/wcAAwAB/8bFZ4cAAAAASUVORK5CYII=", // 1x1 transparent PNG
         iconSize: [0, 0],
         iconAnchor: [0, 0],
         popupAnchor: [0, 0],
@@ -80,6 +81,5 @@ export default function Map({ location }) {
     }
   }, [coords]);
 
-
-  return <div className="map" id={id.toString()} ></div>;
+  return <div className="map" id={id.toString()}></div>;
 }

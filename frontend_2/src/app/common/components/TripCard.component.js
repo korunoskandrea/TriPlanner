@@ -43,20 +43,32 @@ export default function TripCard({ tripData, onDeleteSuccess }) {
     };
 
     return (
-        <div>
+        <div className="trip-card">
             <div className="card-body">
                 <h2 className="card-title">
                     {isPastEvent ? "Past Event" : "Upcoming Event"}
                 </h2>
-                <legend>Trip Type: {tripData.tripType}</legend>
-                <legend>Group Size: {tripData.groupSize || 0}</legend>
-                <legend>Location: {tripData.location}</legend>
-                <legend>Interests: {tripData.interests.join(", ")}</legend>
-                <legend>Start Date:{formatDate(tripData.startDate)}</legend>
-                <legend>End Date: {formatDate(tripData.endDate)} </legend>
-                {tripData.notes && <legend>Notes: {tripData.notes}</legend>}
-                <Map location={tripData.location} />
-                <button onClick={handleDelete} className="classic-btn" disabled={isDeleting}>
+                <div className="card-info">
+                    <div className="info-left">
+                        <p><strong>Trip Type:</strong> {tripData.tripType}</p>
+                        <p><strong>Group Size:</strong> {tripData.groupSize || 0}</p>
+                        <p><strong>Location:</strong> {tripData.location}</p>
+                        <p><strong>Interests:</strong> {tripData.interests.join(", ")}</p>
+                    </div>
+                    <div className="info-right">
+                        <p><strong>Start Date:</strong> {formatDate(tripData.startDate)}</p>
+                        <p><strong>End Date:</strong> {formatDate(tripData.endDate)}</p>
+                        {tripData.notes && <p><strong>Notes:</strong> {tripData.notes}</p>}
+                    </div>
+                </div>
+                <div className="map-container">
+                    <Map location={tripData.location} />
+                </div>
+                <button
+                    onClick={handleDelete}
+                    className="classic-btn"
+                    disabled={isDeleting}
+                >
                     {isDeleting ? "Deleting..." : "Delete Trip"}
                 </button>
             </div>
