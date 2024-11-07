@@ -4,7 +4,7 @@ const INTERESTS = ['Museums', 'Cooking', 'Shopping', 'Night Life', 'Spa & Wellne
 
 export default function InsertSelector({ interests, onInterestChange }) {
     return (
-        <fieldset>
+        <fieldset className="interest-selector">
             <legend>What are you interested in?</legend>
             <div className="interests-container">
                 {INTERESTS.map((interest) => (
@@ -15,10 +15,11 @@ export default function InsertSelector({ interests, onInterestChange }) {
                             onChange={onInterestChange}
                             checked={interests.includes(interest)}
                             id={`interest-${interest}`}
+                            className="interest-checkbox"
                         />
-                        <p htmlFor={`interest-${interest}`}>
+                        <label htmlFor={`interest-${interest}`} className="interest-label">
                             {interest}
-                        </p>
+                        </label>
                     </div>
                 ))}
             </div>

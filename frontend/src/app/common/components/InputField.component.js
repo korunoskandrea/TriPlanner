@@ -5,6 +5,7 @@ export default function InputField({label, type, value, onChange}) {
         <div>
             <legend>{label}</legend>
             <input
+                placeholder={label}
                 type={type}
                 value={value}
                 onChange={onChange}

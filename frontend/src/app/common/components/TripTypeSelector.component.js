@@ -6,7 +6,7 @@ export default function TripTypeSelectorComponent({tripType, groupSize, onTripTy
             <legend>
                 Travelling alone or in a group?
             </legend>
-            <select value={tripType} onChange={onTripTypeChange}>
+            <select className="select-input" value={tripType} onChange={onTripTypeChange}>
                 <option value="alone">Alone</option>
                 <option value="group">Group</option>
             </select>

@@ -5,7 +5,7 @@ import Navbar from "@/app/common/components/Navbar.component";
 
 export default function Register(){
     return (
-        <div className="register-page">
+        <div>
             <Navbar/>
             <RegisterPage/>
         </div>

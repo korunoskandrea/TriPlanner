@@ -20,15 +20,6 @@ export default function HomePage() {
                     />
                 </h1>
                 <RotatingGlobeComponent/>
-                <h3><Typewriter
-                    words={["Let's plan together"]}
-                    loop={false}
-                    cursor
-                    cursorStyle='_'
-                    typeSpeed={200}
-                    deleteSpeed={0}
-                    delaySpeed={1000}
-                /></h3>
             </div>
         </div>
     );

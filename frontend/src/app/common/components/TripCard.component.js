@@ -43,23 +43,21 @@ export default function TripCard({ tripData, onDeleteSuccess }) {
     };
 
     return (
-        <div>
-            <div className="card-body">
-                <h2 className="card-title">
+        <div className="trip-card">
+                <h2>
                     {isPastEvent ? "Past Event" : "Upcoming Event"}
                 </h2>
-                <legend>Trip Type: {tripData.tripType}</legend>
-                <legend>Group Size: {tripData.groupSize || 0}</legend>
-                <legend>Location: {tripData.location}</legend>
-                <legend>Interests: {tripData.interests.join(", ")}</legend>
-                <legend>Start Date:{formatDate(tripData.startDate)}</legend>
-                <legend>End Date: {formatDate(tripData.endDate)} </legend>
-                {tripData.notes && <legend>Notes: {tripData.notes}</legend>}
+            <h4><strong>Trip Type:</strong> {tripData.tripType}</h4>
+                <h4><strong>Group Size:</strong> {tripData.groupSize || 0}</h4>
+                <h4><strong>Location:</strong> {tripData.location}</h4>
+                <h4><strong>Interests:</strong> {tripData.interests.join(", ")}</h4>
+                <h4><strong>Start Date:</strong>{formatDate(tripData.startDate)}</h4>
+                <h4><strong>End Date: </strong>{formatDate(tripData.endDate)} </h4>
+                {tripData.notes && <h4>Notes: {tripData.notes}</h4>}
                 <Map location={tripData.location} />
-                <button onClick={handleDelete} className="classic-btn" disabled={isDeleting}>
+                <button onClick={handleDelete} className="classic-btn" type={"submit"} disabled={isDeleting}>
                     {isDeleting ? "Deleting..." : "Delete Trip"}
                 </button>
-            </div>
         </div>
     );
 }

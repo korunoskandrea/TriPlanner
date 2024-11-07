@@ -7,7 +7,6 @@ export default function LocationInput({ onLocationChange }) {
     const [selectedCity, setSelectedCity] = useState('');
     const [countries, setCountries] = useState([]);
 
-    // Fetch countries only if they are not passed as a prop
     useEffect(() => {
         const fetchCountries = async () => {
             try {
@@ -17,14 +16,14 @@ export default function LocationInput({ onLocationChange }) {
                     return;
                 }
                 const data = await response.json();
-                const countiresList = []
-                const cititesList = {}
+                const countriesList = [];
+                const citiesList = {};
                 for (const place of data.places) {
-                    countiresList.push(place.countryName);
-                    cititesList[place.countryName] = place.cities;
+                    countriesList.push(place.countryName);
+                    citiesList[place.countryName] = place.cities;
                 }
-                setCountries(countiresList);
-                setAllCities(cititesList);
+                setCountries(countriesList);
+                setAllCities(citiesList);
             } catch (error) {
                 console.error('Error fetching countries:', error);
             }
@@ -32,17 +31,11 @@ export default function LocationInput({ onLocationChange }) {
         fetchCountries();
     }, []);
 
-    const handleCountryChange = async (event) => {
+    const handleCountryChange = (event) => {
         const country = event.target.value;
         setCountry(country);
-
-        if (country) {
-            setCities(allCities[country]);
-            setSelectedCity('');
-        } else {
-            setCities([]);
-            setSelectedCity('');
-        }
+        setCities(allCities[country] || []);
+        setSelectedCity('');
     };
 
     const handleCityChange = (event) => {
@@ -52,31 +45,42 @@ export default function LocationInput({ onLocationChange }) {
     };
 
     return (
-        <div>
-            <div>
-                <legend>Where are you traveling to?</legend>
-                <select value={country} onChange={handleCountryChange}>
-                    <option value="" disabled>Select a country</option>
-                    {countries.map((country, index) => (
-                        <option key={index} value={country}>
-                            {country}
-                        </option>
-                    ))}
-                </select>
-            </div>
-            {cities.length > 0 && (
-                <div>
-                    <legend>Select a city:</legend>
-                    <select value={selectedCity} onChange={handleCityChange}>
-                        <option value="" disabled>Select a city</option>
-                        {cities.map((city, index) => (
-                            <option key={index} value={city}>
-                                {city}
+        <div className="location-input">
+             <legend>Where are you traveling to?</legend>
+                <div className="select-group">
+                    <label htmlFor="country-select">Country</label>
+                    <select
+                        id="country-select"
+                        value={country}
+                        onChange={handleCountryChange}
+                        className="select-input"
+                    >
+                        <option value="" disabled>Select a country</option>
+                        {countries.map((country, index) => (
+                            <option key={index} value={country}>
+                                {country}
                             </option>
                         ))}
                     </select>
                 </div>
-            )}
+                {cities.length > 0 && (
+                    <div className="select-group">
+                        <label htmlFor="city-select">City</label>
+                        <select
+                            id="city-select"
+                            value={selectedCity}
+                            onChange={handleCityChange}
+                            className="select-input"
+                        >
+                            <option value="" disabled>Select a city</option>
+                            {cities.map((city, index) => (
+                                <option key={index} value={city}>
+                                    {city}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                )}
         </div>
     );
 }

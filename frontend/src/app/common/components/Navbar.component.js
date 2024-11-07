@@ -46,8 +46,8 @@ export default function Navbar() {
     return (
         <nav>
             <ul className="list">
-                <Image src="/assets/travel-around-the-world.png" className="rotate" width={50} height={50} alt="Travel Logo" />
-                <h3 className="h3-navbar"> TriPlanner</h3>
+                <Image src="/assets/travel-around-the-world.png" className="logo" onClick={handleToHome} width={50} height={50} alt="Travel Logo" />
+                <h3 className="nav-title" onClick={handleToHome}> TriPlanner</h3>
                 {currentPath === "/login" ? (
                     <>
                         <li><button className="nav-buttons" onClick={handleToHome}>Home</button></li>

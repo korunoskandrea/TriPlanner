@@ -4,7 +4,7 @@ export default function DatePicker({ startDate, endDate, onStartDateChange, onEn
     return (
         <div>
             <div className="form-group">
-                <legend className="form-label">Start Date</legend>
+                <legend>Start Date</legend>
                 <input
                     type="date"
                     value={startDate}
@@ -13,11 +13,12 @@ export default function DatePicker({ startDate, endDate, onStartDateChange, onEn
                 />
             </div>
             <div className="form-group ">
-                <legend className="form-label">End Date</legend>
+                <legend>End Date</legend>
                 <input
                     type="date"
                     value={endDate}
                     onChange={onEndDateChange}
+                    style={ {boxShadow: "none", outline: "none" }}
                     className="form-control"
                 />
             </div>

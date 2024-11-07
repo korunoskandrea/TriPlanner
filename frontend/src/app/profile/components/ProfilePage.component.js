@@ -19,7 +19,7 @@ export function ProfilePage() {
                     throw new Error("Error fetching user data");
                 }
                 setUserData(response.data);
-                setTrips(response.data.trips); // Set trips here
+                setTrips(response.data.trips);
             } catch (error) {
                 console.error(error);
             }
@@ -43,32 +43,52 @@ export function ProfilePage() {
 
     const sortedTrips = [...trips].sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
 
+    const currentDate = new Date();
+
+    const upcomingTrips = sortedTrips.filter(trip => new Date(trip.startDate) >= currentDate);
+    const pastTrips = sortedTrips.filter(trip => new Date(trip.startDate) < currentDate);
+
     return (
         <div className="profile-container">
-            <div className="profile-flex-container" >
+            <div className="profile-flex-container">
                 <div className="profile-card-container">
                     <div className="profile-card">
                         <h2>Profile</h2>
                         <div>
-                            <p><strong>Name:</strong> {userData.name}</p>
-                            <p><strong>Last Name:</strong> {userData.lastName}</p>
-                            <p><strong>Birthday:</strong> {formatDate(userData.birthday)}</p>
-                            <p><strong>Email:</strong> {userData.email}</p>
+                            <h4><strong>Name:</strong> {userData.name}</h4>
+                            <h4><strong>Last Name:</strong> {userData.lastName}</h4>
+                            <h4><strong>Birthday:</strong> {formatDate(userData.birthday)}</h4>
+                            <h4><strong>Email:</strong> {userData.email}</h4>
                         </div>
                     </div>
                 </div>
-
-                <ChartSlider trips={sortedTrips}/>
+                <ChartSlider trips={sortedTrips} />
             </div>
 
-            <h2>All Trips</h2>
-            <div className="trips-container">
-                {sortedTrips.map((trip) => (
-                    <div className="trip-card" key={trip._id}>
-                        <TripCard tripData={trip} onDeleteSuccess={handleDeleteSuccess}/>
+            {upcomingTrips.length > 0 && (
+                <>
+                    <div className="trips-container">
+                        {upcomingTrips.map((trip) => (
+                            <div key={trip._id}>
+                                <TripCard tripData={trip} onDeleteSuccess={handleDeleteSuccess} />
+                            </div>
+                        ))}
                     </div>
-                ))}
-            </div>
+                    <hr className="trip-separator" />
+                </>
+            )}
+
+            {pastTrips.length > 0 && (
+                <>
+                    <div className="trips-container">
+                        {pastTrips.map((trip) => (
+                            <div key={trip._id}>
+                                <TripCard tripData={trip} onDeleteSuccess={handleDeleteSuccess} />
+                            </div>
+                        ))}
+                    </div>
+                </>
+            )}
         </div>
     );
 }

@@ -1,11 +1,136 @@
-/* Navbar styles */
-body {
-    margin: 0;
-    min-height: 200vh;
-    font-size: 0;
-    font-family: Helvetica, Verdana, sans-serif;
+/*Auth btn Classic btn*/
+.auth-btn, .classic-btn {
+    margin: 10px;
+    border: none;
+    color: #f0f8f8;
+    background-color: #045149;
+    font-size: 17px;
+    cursor: pointer;
+    padding: 10px;
+    transition: color 0.3s;
+    border-radius: 10px;
 }
 
+.auth-btn:hover, .classic-btn:hover {
+    color: #045149;
+    background-color: rgba(4, 81, 73, 0.45);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.auth-btn:disabled, .classic-btn:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
+
+/* Input field styles */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+select:focus {
+    border-color: #045149;
+    outline: none;
+}
+
+/* Error message styles */
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/*Interest Selector component*/
+.interest-selector {
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.interests-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.interest-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.interest-item:hover {
+    transform: translateY(-5px);
+}
+
+.interest-checkbox {
+    padding: 5px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.interest-checkbox:hover {
+    background: #003a37;
+}
+
+.interest-label {
+    margin: 5px 10px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.interest-label:hover {
+    color: #003a37;
+}
+
+.form-control:focus {
+    border: 1px solid #003a37 !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.form-control:hover {
+    border: 1px solid #003a37;
+    outline: none;
+    box-shadow: none;
+}
+
+/* Location Input */
+.location-input {
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+.select-group {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.select-input:focus {
+    border-color: #003a37;
+    outline: none;
+}
+
+.select-input:hover {
+    border-color: #003a37;
+}
+
+/* Navbar styles */
 nav {
     position: fixed;
     z-index: 1000;
@@ -19,40 +144,40 @@ nav {
     backdrop-filter: blur(8px) brightness(1.2);
     -webkit-backdrop-filter: blur(8px) brightness(1.2);
     box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.18);
-    color: white;
     background-color: #bfdbdd;
-    font-size: 16px;
-
-    @media (min-width: 640px) {
-        padding: 16px 50px 30px 50px;
-    }
+    font-size: 1em;
 }
 
 .nav-buttons {
     background-color: transparent;
     border: none;
     color: #003a37;
-    font-size: 20px;
+    font-size: 1.25em;
     cursor: pointer;
     padding: 10px;
     transition: font-size 0.3s ease;
 }
 
 .nav-buttons:hover {
-    font-size: 23px;
+    font-size: 1.4375em;
 }
 
+.logo {
+    cursor: pointer;
+}
+
+h1, h2, .nav-title {
+    color: #003a37;
+    text-align: center;
+}
+
+.nav-title{
+    cursor: pointer;
+}
 
 .list {
     display: flex;
     align-items: center;
-}
-
-
-.h3-navbar, h1, h2, h3 {
-    color: #003a37;
-    text-align: center;
-
 }
 
 .list {
@@ -68,7 +193,36 @@ nav {
     }
 }
 
-/* Login Register Plan form styles */
+/*Trip Card*/
+.trip-card {
+    background-color: #e6eaef;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    transition: transform 300ms ease;
+    gap: 12px;
+}
+
+.trip-card h2, .profile-card h2 {
+    font-size: 1.5em;
+    color: #045149;
+    margin-bottom: 10px;
+}
+
+.trip-card h4 {
+    font-size: 1.2em;
+    color: #003a37;
+    margin-bottom: 6px;
+}
+
+.trip-card:hover {
+    transform: scale(1.02);
+}
+
+/* Login, Register, Plan form styles */
 .login-form, .register-form, .plan-form {
     max-width: 400px;
     margin: 15% auto;;
@@ -79,40 +233,9 @@ nav {
     box-shadow: 0 5px 7px rgba(0, 0, 0, 0.1);
 }
 
-.auth-btn {
-    margin: 10px;
-    border: none;
-    color: #f0f8f8;
-    background-color: #045149;
-    font-size: 17px;
-    cursor: pointer;
-    padding: 10px;
-    transition: color 0.3s;
-    border-radius: 10px;
+.register-form {
+    margin-top: 10%;
 }
-
-.auth-btn:hover {
-    color: #045149;
-    background-color: #9ec5c6;
-}
-
-.classic-btn {
-    margin: 10px;
-    border: none;
-    color: #f0f8f8;
-    background-color: #045149;
-    font-size: 17px;
-    cursor: pointer;
-    padding: 10px;
-    transition: color 0.3s;
-    border-radius: 10px;
-}
-
-.classic-btn:hover {
-    color: #045149;
-    background-color: #9ec5c6;
-}
-
 
 .error-message {
     color: red;
@@ -125,32 +248,15 @@ nav {
 
 /* ProfilePage.module.css */
 .profile-flex-container {
-    margin: 50px 100px;
     display: flex;
+    margin-top: 50px;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 20px;
 }
 
-.chart-container {
-    max-width: 400px;
-    margin-top: 100px;
-}
-
-.profile-card {
-    flex: 1;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.charts-container {
-    width: 100%;
-    position: relative;
-}
-
-.chart-container {
-    transition: transform 0.9s ease;
+.profile-card h4 {
+    color: #003a37;
+    margin-bottom: 6px;
 }
 
 .profile-card-container {
@@ -159,13 +265,12 @@ nav {
 
 .profile-card {
     font-size: 20px;
-    max-width: 400px;
-    align-self: end;
-    margin: 10% auto;;
+    min-width: 400px;
     padding: 20px;
+    margin: 10% 30% 5%;
     border: 1px solid #ddd;
     border-radius: 8px;
-    background-color: #bfdbdd;
+    background-color: #e6eaef;
     box-shadow: 0 5px 7px rgba(0, 0, 0, 0.1);
 }
 
@@ -185,37 +290,11 @@ nav {
     gap: 16px;
 }
 
-.trip-card {
-    background-color: #e6eaef;;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-}
-
-.card-body {
-    transition: transform 0.3s ease-in-out;
-}
-
-.card-body:hover {
-    animation: bounce 0.6s ease-in-out;
-}
-
-@keyframes bounce {
-    0% {
-        transform: translateY(0);
-    }
-    30% {
-        transform: translateY(-5px);
-    }
-    50% {
-        transform: translateY(0);
-    }
-    70% {
-        transform: translateY(-5px);
-    }
-    100% {
-        transform: translateY(0);
-    }
+.trip-separator {
+    border: none;
+    border-top: 2px solid rgba(0, 58, 55, 0.47);
+    margin: 20px 0;
+    width: 100%;
 }
 
 /*Chart sliders components*/
@@ -243,6 +322,20 @@ nav {
     margin-top: 20px;
 }
 
+.chart-container {
+    max-width: 400px;
+    margin-top: 100px;
+}
+
+.charts-container {
+    width: 100%;
+    position: relative;
+}
+
+.chart-container {
+    transition: transform 0.9s ease;
+}
+
 /*Plan Page*/
 .plan-form {
     max-width: 500px;
@@ -254,50 +347,7 @@ nav {
     box-shadow: 0 5px 7px rgba(0, 0, 0, 0.1);
 }
 
-.interests-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.interest-item {
-    display: flex;
-    align-items: center;
-}
-
-/* Input field styles */
-input[type="text"],
-input[type="email"],
-input[type="password"],
-select {
-    width: 100%; /* Full width input fields */
-    padding: 10px; /* Padding for better spacing */
-    margin-bottom: 20px; /* Space below inputs */
-    border: 1px solid #ced4da; /* Light border */
-    border-radius: 5px; /* Rounded corners for inputs */
-    box-sizing: border-box; /* Ensure padding is included in width */
-    transition: border-color 0.3s; /* Transition effect for border color */
-}
-
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus,
-select:focus {
-    border-color: #007bff; /* Change border color on focus */
-    outline: none; /* Remove default outline */
-}
-
-/* Error message styles */
-.error-message {
-    color: red;
-    font-size: 12px;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-
 /* Home page */
-
 .home-page-body {
     padding-top: 10%;
 }
@@ -306,7 +356,7 @@ select:focus {
     position: relative;
     height: 450px;
     width: 450px;
-    margin: 0.05em auto; /* Center the globe */
+    margin: 0.05em auto;
     background: #888 url("../../public/assets/spin.jpg") 0 0 repeat;
     border-radius: 50%;
     background-size: 630px;
@@ -351,3 +401,6 @@ select:focus {
     font-weight: bold;
     color: #045149;
 }
+
+
+
