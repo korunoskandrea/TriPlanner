@@ -39,8 +39,9 @@ export default function InfoCard() {
     return (
         <div className="info-container">
             <div className="info-card">
-                    <TripCard tripData={tripData} />
+                <TripCard tripData={tripData} />
             </div>
+            <div className="visit-prof-btn"></div>
             <button onClick={navigateToProfile} className="classic-btn">
                 Visit your Profile
             </button>

@@ -53,7 +53,7 @@ export default function TripCard({ tripData, onDeleteSuccess }) {
                 <h4><strong>Interests:</strong> {tripData.interests.join(", ")}</h4>
                 <h4><strong>Start Date:</strong>{formatDate(tripData.startDate)}</h4>
                 <h4><strong>End Date: </strong>{formatDate(tripData.endDate)} </h4>
-                {tripData.notes && <h4>Notes: {tripData.notes}</h4>}
+            {tripData.notes && <h4><strong>Notes: </strong>{tripData.notes}</h4>}
                 <Map location={tripData.location} />
                 <button onClick={handleDelete} className="classic-btn" type={"submit"} disabled={isDeleting}>
                     {isDeleting ? "Deleting..." : "Delete Trip"}
