@@ -264,7 +264,7 @@ select:focus {
 .popup-location {
     font-size: 17px;
     font-weight: bold;
-    color: #c84b31;
+    color: #697565;
 }
 
 /* InsertSelector.css */
@@ -303,8 +303,8 @@ select:focus {
 }
 
 .interest-item:hover {
-    background-color: #ecdbba;
-    color: #c84b31;
+    background-color: #ecdfcc;
+    color: #697565;
     transform: scale(1.05);
 }
 
@@ -494,8 +494,8 @@ legend {
 
 /* Navbar container */
 .navbar {
-    background-color: #c84b31;
-    color: #191919;
+    background-color: #697565;
+    color: #1e201e;
     padding: 10px 20px;
     display: flex;
     justify-content: center;
@@ -648,7 +648,7 @@ legend {
 
 /* Form container */
 .auth-form {
-    background-color: #ecdbba;
+    background-color: #ecdfcc;
     max-width: 400px;
     margin: 10px;
     padding: 10px;
@@ -705,8 +705,8 @@ input[type="password"]:focus {
 
 /* Submit button */
 button {
-    background-color: #c84b31;
-    color: #ecdbba;
+    background-color: #697565;
+    color: #ecdfcc;
     border: none;
     padding: 12px;
     border-radius: 5px;
@@ -722,7 +722,7 @@ button:disabled {
 }
 
 button:hover:not(:disabled) {
-    background-color: #c84b31;
+    background-color: #697565;
     transform: scale(1.05);
 }
 
@@ -787,8 +787,8 @@ button:hover:not(:disabled) {
 
 /* Button Styling */
 button.classic-btn {
-    background-color: #c84b31;
-    color: #ecdbba;
+    background-color: #697565;
+    color: #ecdfcc;
     border: none;
     padding: 10px 15px; /* Adjust padding to allow flexibility */
     border-radius: 5px;
@@ -815,12 +815,12 @@ button.classic-btn:disabled {
 
 /* Main container for the trip card */
 .trip-card {
-    background-color: #ecdbba;
+    background-color: #ecdfcc;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin: 20px;
-    max-width: 800px;
+    min-width: 700px;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -980,7 +980,7 @@ p {
 }
 
 .horizontal-scroll::-webkit-scrollbar-thumb {
-    background-color: #c84b31;
+    background-color: #697565;
     border-radius: 4px;
 }
 
