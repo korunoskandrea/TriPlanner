@@ -519,18 +519,6 @@ legend {
     align-items: center;
 }
 
-.rotate {
-    animation: rotate 10s infinite linear;
-}
-
-@keyframes rotate {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
 
 /* Navbar Container */
 .navbar {
