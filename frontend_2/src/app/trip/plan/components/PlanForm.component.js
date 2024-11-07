@@ -1,11 +1,12 @@
-import { useState } from "react";
+import {useState} from "react";
 import TripTypeSelectorComponent from "@/app/common/components/TripTypeSelector.component";
 import LocationInput from "@/app/common/components/LocationInput.component";
 import InterestSelector from "@/app/common/components/InterestSelector.component";
 import DatePicker from "@/app/common/components/DatePicker.component";
 import InputField from "@/app/common/components/InputField.component";
+import {useRouter} from "next/navigation";
 
-export default function PlanForm({ onSubmit }) {
+export default function PlanForm({onSubmit}) {
     const [tripType, setTripType] = useState('alone');
     const [groupSize, setGroupSize] = useState('');
     const [location, setLocation] = useState('');
@@ -13,6 +14,7 @@ export default function PlanForm({ onSubmit }) {
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
     const [notes, setNotes] = useState('');
+    const router = useRouter();
 
     const handlePlan = (event) => {
         event.preventDefault();
@@ -29,14 +31,15 @@ export default function PlanForm({ onSubmit }) {
             endDate: endDate,
             notes: notes
         });
+        router.push("/profile");
     };
+
 
     return (
         <form onSubmit={handlePlan} className="plan-form">
-            <h2 className="form-title">Plan Your Trip</h2>
+            <h2>Plan Your Trip</h2>
 
-            {/* Trip Details Section */}
-            <div className="form-row">
+            <div>
                 <TripTypeSelectorComponent
                     tripType={tripType}
                     groupSize={groupSize}
@@ -45,15 +48,14 @@ export default function PlanForm({ onSubmit }) {
                 />
             </div>
 
-            {/* Location & Interests Section */}
-            <div className="form-row">
+            <div>
                 <LocationInput
                     onLocationChange={setLocation}
                 />
                 <InterestSelector
                     interests={interests}
                     onInterestChange={(e) => {
-                        const { value, checked } = e.target;
+                        const {value, checked} = e.target;
                         setInterests((prev) =>
                             checked ? [...prev, value] : prev.filter((interest) => interest !== value)
                         );
@@ -61,8 +63,7 @@ export default function PlanForm({ onSubmit }) {
                 />
             </div>
 
-            {/* Dates & Notes Section */}
-            <div className="form-row">
+            <div>
                 <DatePicker
                     startDate={startDate}
                     endDate={endDate}
@@ -77,9 +78,7 @@ export default function PlanForm({ onSubmit }) {
                 />
             </div>
 
-            <div className="form-footer">
-                <button type="submit" className="classic-btn">Info for the Trip</button>
-            </div>
+            <button type="submit" className="classic-btn" onSubmit={handlePlan}>Save Trip</button>
         </form>
     );
 }

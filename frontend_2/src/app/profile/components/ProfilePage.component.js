@@ -19,7 +19,7 @@ export function ProfilePage() {
                     throw new Error("Error fetching user data");
                 }
                 setUserData(response.data);
-                setTrips(response.data.trips); // Set trips here
+                setTrips(response.data.trips);
             } catch (error) {
                 console.error(error);
             }
@@ -43,7 +43,6 @@ export function ProfilePage() {
 
     const sortedTrips = [...trips].sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
 
-    // Separate past and upcoming trips
     const pastTrips = sortedTrips.filter((trip) => new Date(trip.endDate) < new Date());
     const upcomingTrips = sortedTrips.filter((trip) => new Date(trip.startDate) >= new Date());
 
@@ -52,16 +51,15 @@ export function ProfilePage() {
             <div className="profile-flex-container">
                 <div className="profile-card-container">
                     <div className="profile-card">
-                        <h2>Profile</h2>
+                        <h3>Profile</h3>
                         <div>
-                            <p><strong>Name:</strong> {userData.name}</p>
-                            <p><strong>Last Name:</strong> {userData.lastName}</p>
-                            <p><strong>Birthday:</strong> {formatDate(userData.birthday)}</p>
-                            <p><strong>Email:</strong> {userData.email}</p>
+                            <h4><strong>Name:</strong> {userData.name}</h4>
+                            <h4><strong>Last Name:</strong> {userData.lastName}</h4>
+                            <h4><strong>Birthday:</strong> {formatDate(userData.birthday)}</h4>
+                            <h4><strong>Email:</strong> {userData.email}</h4>
                         </div>
                     </div>
                 </div>
-
                 <ChartSlider trips={sortedTrips} />
             </div>
 

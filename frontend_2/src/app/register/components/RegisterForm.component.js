@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import {useState} from "react";
 import InputField from "@/app/common/components/InputField.component";
 import AuthSubmitBtnComponent from "@/app/common/components/AuthSubmitBtn.component";
-import { useRouter } from "next/navigation";
+import {useRouter} from "next/navigation";
 
-export default function RegisterForm({ onSubmit }) {
+export default function RegisterForm({onSubmit}) {
     const [name, setName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
@@ -40,53 +40,41 @@ export default function RegisterForm({ onSubmit }) {
         <form onSubmit={handleRegister} className="auth-form">
             <h2 className="form-title">Register</h2>
             {error && <div className="error-message">{error}</div>}
-            <div className="form-group">
-                <InputField
-                    label="Name"
-                    type="text"
-                    value={name}
-                    onChange={(event) => setName(event.target.value)}
-                />
-            </div>
-            <div className="form-group">
-                <InputField
-                    label="Last Name"
-                    type="text"
-                    value={lastName}
-                    onChange={(event) => setLastName(event.target.value)}
-                />
-            </div>
-            <div className="form-group">
-                <InputField
-                    label="Email"
-                    type="email"
-                    value={email}
-                    onChange={(event) => setEmail(event.target.value)}
-                />
-            </div>
-            <div className="form-group">
-                <InputField
-                    label="Password"
-                    type="password"
-                    value={password}
-                    onChange={(event) => setPassword(event.target.value)}
-                />
-            </div>
-            <div className="form-group">
-                <InputField
-                    label="Birthday"
-                    type="date"
-                    value={birthday}
-                    onChange={(event) => setBirthday(event.target.value)}
-                />
-            </div>
-            <div className="form-group">
-                <AuthSubmitBtnComponent
-                    label={loading ? "Registering..." : "Register"}
-                    onClick={handleRegister}
-                    disabled={loading}
-                />
-            </div>
+            <InputField
+                label="Name"
+                type="text"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+            />
+            <InputField
+                label="Last Name"
+                type="text"
+                value={lastName}
+                onChange={(event) => setLastName(event.target.value)}
+            />
+            <InputField
+                label="Email"
+                type="email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+            />
+            <InputField
+                label="Password"
+                type="password"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+            />
+            <InputField
+                label="Birthday"
+                type="date"
+                value={birthday}
+                onChange={(event) => setBirthday(event.target.value)}
+            />
+            <AuthSubmitBtnComponent
+                label={loading ? "Registering..." : "Register"}
+                onClick={handleRegister}
+                disabled={loading}
+            />
         </form>
     );
 }

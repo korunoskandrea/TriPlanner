@@ -9,6 +9,7 @@ export default function InputField({label, type, value, onChange}) {
                 value={value}
                 onChange={onChange}
                 required
+                placeholder={label}
                 className="input-field"
             />
         </div>

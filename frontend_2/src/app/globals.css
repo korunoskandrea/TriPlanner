@@ -1,385 +1,30 @@
-
-h1, h3 {
-    text-align: center;
+/*Auth btn Classic btn*/
+.auth-btn, .classic-btn {
     margin: 10px;
-    padding: 10px;
-}
-
-.list {
-    list-style-type: none;
-    margin-left: auto;
-    display: none;
-    @media (min-width: 640px) {
-        display: flex;
-    }
-
-    li {
-        margin-left: 20px;
-    }
-}
-
-.map {
-    height: 500px;
-}
-
-
-.chart-container {
-    max-width: 400px;
-    margin-top: 100px;
-}
-
-
-.charts-container {
-    width: 100%;
-    position: relative;
-}
-
-.chart-container {
-    transition: transform 0.9s ease;
-}
-
-.profile-card-container {
-    flex: 1;
-}
-
-.profile-card {
-    font-size: 20px;
-    max-width: 400px;
-    align-self: end;
-    margin: 10% auto;;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #ecdbba;
-    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.1);
-}
-
-
-.trips-container {
-    width: 100%;
-    max-width: 80%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-}
-
-.trip-card {
-    background-color: #e6eaef;;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-}
-
-.card-body {
-    transition: transform 0.3s ease-in-out;
-}
-
-
-/*Chart sliders components*/
-.chart-slider {
-    position: relative;
-    overflow: hidden;
-    flex: 1;
-}
-
-.charts-container {
-    display: flex;
-    flex-direction: row;
-    transition: transform 0.5s ease;
-    width: 100%;
-}
-
-.chart-item {
-    flex: 0 0 100%;
-    min-width: 400px;
-    height: 300px;
-    margin-top: 80px;
-}
-
-.chart-controls {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-    max-width: 10px;
-}
-
-/*Plan Page*/
-.plan-form {
-    max-width: 500px;
-    margin: 10% auto;;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #bfdbdd;
-    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.1);
-}
-
-.interests-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.interest-item {
-    display: flex;
-    align-items: center;
-}
-
-/* Input field styles */
-input[type="text"],
-input[type="email"],
-input[type="password"],
-select {
-    width: 100%; /* Full width input fields */
-    padding: 10px; /* Padding for better spacing */
-    margin-bottom: 20px; /* Space below inputs */
-    border: 1px solid #ced4da; /* Light border */
-    border-radius: 5px; /* Rounded corners for inputs */
-    box-sizing: border-box; /* Ensure padding is included in width */
-    transition: border-color 0.3s; /* Transition effect for border color */
-}
-
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus,
-select:focus {
-    border-color: #007bff; /* Change border color on focus */
-    outline: none; /* Remove default outline */
-}
-
-/* Error message styles */
-.error-message {
-    color: red;
-    font-size: 12px;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-
-/* Home page */
-
-.home-page-body {
-    padding-top: 10%;
-}
-
-#earth {
-    position: relative;
-    height: 450px;
-    width: 450px;
-    margin: 0.05em auto; /* Center the globe */
-    background: #888 url("../../public/assets/spin.jpg") 0 0 repeat;
-    border-radius: 50%;
-    background-size: 630px;
-    animation: bounce 2s ease-in-out infinite; /* Adjusted animation for bounce */
-    transition: transform 200ms linear;
-    transform-style: preserve-3d;
-    box-shadow: inset 20px 0 65px 6px rgba(0, 0, 0, 0.38);
-    color: #000;
-}
-
-@keyframes bounce {
-    0% {
-        transform: translateY(0); /* Start at the original position */
-    }
-    25% {
-        transform: translateY(-20px); /* Move up */
-    }
-    50% {
-        transform: translateY(0); /* Go back to the original position */
-    }
-    75% {
-        transform: translateY(-10px); /* Move slightly up */
-    }
-    100% {
-        transform: translateY(0); /* Go back to the original position */
-    }
-}
-
-
-.info-container {
-    margin-top: 10%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-width: 500px;
-}
-
-.info-card {
-    background-color: #e6eaef;;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    max-width: 700px;
-    width: 100%;
-}
-
-
-/*Map component*/
-.popup-location {
+    border: none;
+    color: #f0f8f8;
+    background-color: #c84b31;
     font-size: 17px;
-    font-weight: bold;
-    color: #c84b31;
-}
-
-/* InsertSelector.css */
-
-.interests-fieldset {
-    border: 2px solid #2d4263;
-    border-radius: 8px;
-    padding: 20px;
-    max-width: 400px;
-    margin: auto;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.interests-fieldset legend {
-    font-size: 1.2em;
-    color: #333;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-.interests-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.interest-item {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border-radius: 6px;
-    background-color: #f9f9f9;
     cursor: pointer;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
-}
-
-.interest-item:hover {
-    background-color: #ecdbba;
-    color: #c84b31;
-    transform: scale(1.05);
-}
-
-.interest-item input {
-    margin-right: 8px;
-    cursor: pointer;
-}
-
-.interest-item span {
-    font-size: 1em;
-}
-
-/* LocationInput.css */
-
-.location-input-container {
-    max-width: 400px;
-    margin: auto;
-    padding: 20px;
-    border: 2px solid #2d4263;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.input-group {
-    margin-bottom: 15px;
-}
-
-legend {
-    font-size: 1.2em;
-    margin-bottom: 5px;
-    color: #333;
-    font-weight: bold;
-}
-
-.location-select {
-    width: 100%;
     padding: 10px;
-    font-size: 1em;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    background-color: #fff;
-    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    transition: color 0.3s;
+    border-radius: 10px;
+    min-width: 40px;
 }
 
-.location-select:focus {
-    outline: none;
-    border-color: #2d4263;
-    box-shadow: 0px 0px 5px #2d4263;
+.auth-btn:hover, .classic-btn:hover {
+    color: #f0f8f8;
+    background-color: rgba(200, 75, 49, 0.61) !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
 }
 
-.location-select option {
-    padding: 10px;
+.auth-btn:disabled, .classic-btn:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
 }
 
-/* TripTypeSelectorComponent.css */
-
-.trip-type-container {
-    max-width: 400px;
-    margin: auto;
-    padding: 20px;
-    border: 2px solid #2d4263;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.trip-type-container legend {
-    font-size: 1.2em;
-    color: #333;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.trip-select {
-    width: 100%;
-    padding: 10px;
-    font-size: 1em;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    background-color: #fff;
-    margin-bottom: 15px;
-    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.trip-select:focus {
-    outline: none;
-    border-color: #2d4263;
-    box-shadow: 0px 0px 5px #2d4263;
-}
-
-.group-size-container {
-    margin-top: 10px;
-}
-
-.group-size-label {
-    display: block;
-    font-size: 0.9em;
-    color: #666;
-    margin-bottom: 5px;
-}
-
-.group-size-input {
-    width: 100%;
-    padding: 10px;
-    font-size: 1em;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.group-size-input:focus {
-    outline: none;
-    border-color: #2d4263;
-    box-shadow: 0px 0px 5px #2d4263;
-}
-
-/* DatePicker.css */
-
+/* DatePicker*/
 .date-picker-container {
     max-width: 400px;
     margin: auto;
@@ -389,15 +34,10 @@ legend {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.form-group {
-    margin-bottom: 15px;
-}
-
 .form-label {
-    font-size: 1.1em;
+    font-size: 1.3em;
     color: #333;
     margin-bottom: 5px;
-    font-weight: bold;
 }
 
 .form-control {
@@ -417,22 +57,109 @@ legend {
     box-shadow: 0px 0px 5px #2d4263;
 }
 
-/* InputField.css */
-
+/* InputField  */
 .input-field-container {
     margin-bottom: 20px;
 }
 
-.input-field-label {
-    font-size: 1.1em;
-    color: #333;
-    margin-bottom: 5px;
-    font-weight: bold;
+.input-field {
+    font-size: 10px !important;
 }
 
-.input-field {
-    width: 100%;
+/* Input field styles */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
     padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+select:focus {
+    border-color: #2d4263;
+    outline: none;
+}
+
+/* InterestSelector */
+.interests-fieldset {
+    border: 2px solid #2d4263;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 400px;
+    margin: auto;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.interests-fieldset legend {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.interests-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.interest-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 6px;
+    background-color: rgba(249, 249, 249, 0.48) !important;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.interest-item:hover {
+    background-color: rgba(45, 66, 99, 0.87) !important;
+    color: #f9f9f9 !important;
+    transform: scale(1.05);
+}
+
+.interest-item input {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.interest-checkbox {
+    padding: 5px !important;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.interest-label {
+    margin: 5px 10px;
+}
+
+/* LocationInput */
+.location-input-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 2px solid #2d4263;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.location-select {
+    width: 100%;
+    padding: 10px;
     font-size: 1em;
     border: 1px solid #ccc;
     border-radius: 6px;
@@ -441,39 +168,66 @@ legend {
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.input-field:focus {
+.location-select:focus {
     outline: none;
     border-color: #2d4263;
     box-shadow: 0px 0px 5px #2d4263;
 }
 
-/* Navbar.css */
-
-/* Navbar container */
-.navbar {
-    background-color: #c84b31;
-    color: #191919;
+/* Navbar */
+nav {
+    position: fixed;
+    z-index: 1000;
+    top: 20px;
+    left: 50%;
+    width: 90%;
     padding: 10px 20px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-
+    transition: 0.3s ease-out;
+    transform: translateX(-50%);
+    background-color: #c84b31;
+    color: #191919;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.45);
+    border-radius: 90px;
 }
 
-/* Navbar inner container to center content */
 .navbar-container {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    max-width: 1200px;
     align-items: center;
 }
 
-/* Logo and title */
+.nav-button {
+    background-color: #ecdbba;
+    color: #c84b31;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-button:hover {
+    background-color: rgba(236, 219, 186, 0.38) !important;
+    color: #ecdbba;
+    transform: scale(1.05);
+}
+
+.navbar-title {
+    color: black;
+    margin-left: 10px;
+    font-size: 20px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
 .logo {
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .rotate {
@@ -489,14 +243,6 @@ legend {
     }
 }
 
-.navbar-title {
-    margin-left: 10px;
-    font-size: 20px;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-/* Navbar links container */
 .nav-links {
     list-style: none;
     display: flex;
@@ -504,212 +250,7 @@ legend {
     align-items: center;
 }
 
-/* Individual button style */
-.nav-button {
-    background-color: #ecdbba;
-    color: #c84b31;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 15px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.nav-button:hover {
-    background-color: rgba(236, 219, 186, 0.71);
-    transform: scale(1.05);
-}
-
-.nav-button:focus {
-    outline: none;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    .navbar-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .logo {
-        margin-bottom: 15px;
-    }
-}
-
-/* LoginForm.css */
-
-/* Form container */
-.auth-form {
-    background-color: #ecdbba;
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-/* Title styling */
-.form-title {
-    font-size: 2rem;
-    font-weight: 600;
-    color: #191919;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Form group styling (for spacing between input fields) */
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-/* Error message */
-.error-message {
-    color: #d9534f;
-    background-color: #f2dede;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 0.875rem;
-    text-align: center;
-}
-
-/* Input field styling */
-input[type="email"],
-input[type="password"] {
-    padding: 12px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 100%;
-    box-sizing: border-box;
-    transition: border-color 0.3s ease;
-}
-
-/* Focused input fields */
-input[type="email"]:focus,
-input[type="password"]:focus {
-    border-color: #2d4263;
-    outline: none;
-}
-
-/* Submit button */
-button {
-    background-color: #c84b31;
-    color: #ecdbba;
-    border: none;
-    padding: 12px;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    width: 100%;
-}
-
-button:disabled {
-    background-color: #ddd;
-    cursor: not-allowed;
-}
-
-button:hover:not(:disabled) {
-    background-color: #c84b31;
-    transform: scale(1.05);
-}
-
-/* PlanForm.css */
-
-/* Form container */
-.plan-form {
-    background-color: #ecdbba;
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-/* Title styling */
-.form-title {
-    font-size: 1.75rem;
-    font-weight: 600;
-    color: #333;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Form row layout */
-.form-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-/* Section for individual form elements */
-.form-row > div {
-    flex: 1 1 48%; /* Allow elements to take up 48% of the row */
-}
-
-/* Responsive styling for mobile devices */
-@media (max-width: 768px) {
-    .form-row > div {
-        flex: 1 1 100%; /* Stack elements in a single column on small screens */
-    }
-
-    .form-title {
-        font-size: 1.5rem;
-    }
-
-    .plan-form {
-        padding: 15px;
-    }
-
-    button.classic-btn {
-        width: 100%;
-
-    }
-}
-
-/* Button Styling */
-button.classic-btn {
-    background-color: #c84b31;
-    color: #ecdbba;
-    border: none;
-    padding: 10px 15px; /* Adjust padding to allow flexibility */
-    border-radius: 5px;
-    font-size: 2rem; /* Font size will control the button size */
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    display: inline-flex; /* Allows button to adjust to content size */
-    align-items: center;
-    justify-content: center;
-    height: auto; /* Ensures height adjusts based on text */
-}
-
-button.classic-btn:hover {
-    background-color: #d96852; /* Example hover effect */
-    transform: scale(1.05); /* Slightly increase size on hover */
-}
-
-button.classic-btn:disabled {
-    background-color: #a04b37; /* Disabled state color */
-    cursor: not-allowed;
-}
-
-/* TripCard.css */
-
-/* Main container for the trip card */
+/*Trip card*/
 .trip-card {
     background-color: #ecdbba;
     border-radius: 8px;
@@ -722,67 +263,148 @@ button.classic-btn:disabled {
     gap: 15px;
 }
 
-/* Title styling */
-.card-title {
-    font-size: 1.5rem;
-    font-weight: bold;
+.trip-card:hover {
+    transform: scale(1.01);
+}
+
+
+.trip-card h4 {
+    font-size: 1.2em;
+}
+
+/* TripTypeSelector*/
+
+.trip-type-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 2px solid #2d4263;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+legend {
+    font-size: 1.2em;
     color: #333;
     margin-bottom: 10px;
 }
 
-/* Container for the trip information */
-.card-info {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-/* Left column (Trip type, Group size, Location, Interests) */
-.info-left {
-    flex: 1;
-    min-width: 200px; /* Ensures it takes up some width */
-}
-
-/* Right column (Dates, Notes) */
-.info-right {
-    flex: 1;
-    min-width: 200px;
-}
-
-/* Map container styling */
-.map {
-    position: relative;
+.trip-select {
     width: 100%;
-    height: 200px; /* Reduced the height to make the map smaller */
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+    margin-bottom: 15px;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.trip-select:focus, .group-size-input:focus {
+    outline: none;
+    border-color: #2d4263;
+    box-shadow: 0px 0px 5px #2d4263;
+}
+
+.group-size-container {
+    margin-top: 10px;
+}
+
+.group-size-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Auth forms */
+.auth-form {
+    background-color: #ecdbba;
+    max-width: 400px;
+    margin: 10% auto;
+    padding: 10px;
     border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
 }
 
-/* Ensure map resizes correctly with the parent container */
-.map iframe {
+
+h1, h2, h3 {
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Profile */
+.chart-container {
+    max-width: 400px;
+    margin-top: 100px;
+    transition: transform 0.9s ease;
+
+}
+
+.charts-container {
     width: 100%;
-    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    transition: transform 0.5s ease;
 }
 
-/* Optional: Style for the popup location text */
-.popup-location {
-    font-weight: bold;
-    color: #333;
+.chart-slider {
+    position: relative;
+    overflow: hidden;
+    flex: 1;
 }
 
-/* Make the map responsive */
-@media (max-width: 768px) {
-    .map {
-        height: 150px; /* Further reduce the height for smaller screens */
-    }
+.chart-item {
+    flex: 0 0 100%;
+    min-width: 400px;
+    height: 300px;
+    margin-top: 80px;
+}
+
+.chart-controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    max-width: 10px;
 }
 
 .profile-container {
-    padding: 20px;
+    margin-top: 4%;
     display: flex;
     flex-direction: column;
+    padding: 30px;
+}
+
+.profile-card {
+    padding: 20px;
+    max-width: 400px;
+    align-self: end;
+    margin: 10% auto;;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #ecdbba;
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.1);
 }
 
 .profile-flex-container {
@@ -793,18 +415,8 @@ button.classic-btn:disabled {
 }
 
 .profile-card-container {
+    flex: 1;
     width: 30%;
-}
-
-.profile-card {
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-    margin-bottom: 20px;
 }
 
 .trips-container,
@@ -813,56 +425,13 @@ h2 {
     margin-bottom: 30px;
 }
 
-.past-trips-container {
+.past-trips-container, .upcoming-trips-container {
     display: flex;
     overflow-x: auto;
     gap: 30px;
     padding-bottom: 10px;
 }
 
-.horizontal-scroll {
-    display: flex;
-    gap: 30px;
-    padding-bottom: 20px;
-}
-
-.trip-card {
-    width: 400px;
-    flex-shrink: 0;
-    box-sizing: border-box;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    transition: transform 0.3s ease;
-}
-
-.trip-card:hover {
-    transform: translateY(-5px);
-}
-
-.upcoming-trips-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Increase min width for larger cards */
-    gap: 30px;
-    padding: 20px 0;
-}
-
-.trip-card img {
-    width: 100%;
-    height: auto;
-}
-
-p {
-    margin: 5px 0;
-}
-
-/* For horizontal scroll behavior */
-.past-trips-container p {
-    margin-top: 10px;
-    font-size: 16px;
-}
-
-/* Styling for horizontal scrolling of trips */
 .horizontal-scroll {
     display: flex;
     gap: 20px;
@@ -884,26 +453,79 @@ p {
     background-color: #f1f1f1;
 }
 
-/* Styling for trip cards inside the horizontal scroll */
 .horizontal-scroll .trip-card {
     flex-shrink: 0;
-    width: 300px; /* Adjust width of the trip card */
+    width: 300px;
     margin-right: 20px;
 }
 
-.trips-section h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    padding-left: 15px;
+/* PlanForm */
+
+.plan-form {
+    background-color: #ecdbba;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+    margin: 10% auto;;
+    border: 1px solid #ddd;
 }
 
-.profile-container {
-    padding: 30px;
+.home-page-body {
+    padding-top: 10%;
 }
 
-/* If needed: Customize loading state */
-.loading {
-    text-align: center;
-    font-size: 1.5rem;
-    padding: 50px;
+.map {
+    height: 500px;
+}
+
+.map iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.popup-location {
+    font-weight: bold;
+    color: #333;
+}
+.popup-location {
+    font-size: 17px;
+    font-weight: bold;
+    color: #c84b31;
+}
+
+#earth {
+    position: relative;
+    height: 450px;
+    width: 450px;
+    margin: 0.05em auto;
+    background: #888 url("../../public/assets/spin.jpg") 0 0 repeat;
+    border-radius: 50%;
+    background-size: 630px;
+    animation: bounce 2s ease-in-out infinite;
+    transition: transform 200ms linear;
+    transform-style: preserve-3d;
+    box-shadow: inset 20px 0 65px 6px rgba(0, 0, 0, 0.38);
+    color: #000;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-20px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    75% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }

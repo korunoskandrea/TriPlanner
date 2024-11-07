@@ -1,6 +1,6 @@
 "use client"
 import Navbar from "@/app/common/components/Navbar.component";
-import RotatingGlobeComponent from "@/app/common/components/RotatingGlobe.component";
+import BouncingGlobeComponent from "@/app/common/components/BouncingGlobe.component";
 import {Typewriter} from "react-simple-typewriter";
 
 export default function HomePage() {
@@ -19,7 +19,7 @@ export default function HomePage() {
                         delaySpeed={1000}
                     />
                 </h1>
-                <RotatingGlobeComponent/>
+                <BouncingGlobeComponent/>
                 <h3><Typewriter
                     words={["Let's plan together"]}
                     loop={false}

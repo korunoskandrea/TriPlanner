@@ -1,10 +1,10 @@
 "use client";
-import { useState } from "react";
+import {useState} from "react";
 import InputField from "@/app/common/components/InputField.component";
 import AuthSubmitBtnComponent from "@/app/common/components/AuthSubmitBtn.component";
-import { useRouter } from "next/navigation";
+import {useRouter} from "next/navigation";
 
-export default function LoginForm({ onSubmit }) {
+export default function LoginForm({onSubmit}) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -34,29 +34,23 @@ export default function LoginForm({ onSubmit }) {
         <form onSubmit={handleLogin} className="auth-form">
             <h2 className="form-title">Log In</h2>
             {error && <div className="error-message">{error}</div>}
-            <div className="form-group">
-                <InputField
-                    label="Email"
-                    type="email"
-                    value={email}
-                    onChange={(event) => setEmail(event.target.value)}
-                />
-            </div>
-            <div className="form-group">
-                <InputField
-                    label="Password"
-                    type="password"
-                    value={password}
-                    onChange={(event) => setPassword(event.target.value)}
-                />
-            </div>
-            <div className="form-group">
-                <AuthSubmitBtnComponent
-                    label={loading ? "Logging in..." : "Log in"}
-                    onClick={handleLogin}
-                    disabled={loading}
-                />
-            </div>
+            <InputField
+                label="Email"
+                type="email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+            />
+            <InputField
+                label="Password"
+                type="password"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+            />
+            <AuthSubmitBtnComponent
+                label={loading ? "Logging in..." : "Log in"}
+                onClick={handleLogin}
+                disabled={loading}
+            />
         </form>
     );
 }

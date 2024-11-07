@@ -31,10 +31,6 @@ export function PlanPage() {
                     }
                 }
             );
-
-            const tripId = response.data._id;
-
-            window.location.href = `/trip/info?id=${tripId}`;
         } catch (error) {
             console.error("Error creating trip:", error);
         }

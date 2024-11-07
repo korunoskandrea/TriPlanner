@@ -1,4 +1,4 @@
-export default function RotatingGlobeComponent() {
+export default function BouncingGlobeComponent() {
     return (
         <div id="earth">
         </div>

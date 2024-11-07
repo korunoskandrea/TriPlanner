@@ -11,4 +11,3 @@ export default function AuthSubmitBtnComponent({ label }) {
 AuthSubmitBtnComponent.propTypes = {
     label: PropTypes.string.isRequired,
 };
-// todo

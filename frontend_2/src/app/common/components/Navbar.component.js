@@ -44,11 +44,11 @@ export default function Navbar() {
     }
 
     return (
-        <nav className="navbar">
+        <nav>
             <div className="navbar-container">
                 <div className="logo">
-                    <Image src="/assets/travel-around-the-world.png" className="rotate" width={50} height={50} alt="Travel Logo" />
-                    <h3 className="navbar-title">TriPlanner</h3>
+                    <Image src="/assets/travel-around-the-world.png" onClick={handleToHome} className="rotate" width={50} height={50} alt="Travel Logo" />
+                    <h3 className="navbar-title" onClick={handleToHome}>TriPlanner</h3>
                 </div>
                 <ul className="nav-links">
                     {currentPath === "/login" ? (

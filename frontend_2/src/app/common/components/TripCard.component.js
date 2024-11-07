@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import Map from "@/app/trip/info/components/Map.component";
+import React, {useState} from "react";
+import Map from "@/app/common/components/Map.component";
 
-export default function TripCard({ tripData, onDeleteSuccess }) {
+export default function TripCard({tripData, onDeleteSuccess}) {
     const [isDeleting, setIsDeleting] = useState(false);
 
     if (!tripData) {
@@ -44,34 +44,21 @@ export default function TripCard({ tripData, onDeleteSuccess }) {
 
     return (
         <div className="trip-card">
-            <div className="card-body">
-                <h2 className="card-title">
-                    {isPastEvent ? "Past Event" : "Upcoming Event"}
-                </h2>
-                <div className="card-info">
-                    <div className="info-left">
-                        <p><strong>Trip Type:</strong> {tripData.tripType}</p>
-                        <p><strong>Group Size:</strong> {tripData.groupSize || 0}</p>
-                        <p><strong>Location:</strong> {tripData.location}</p>
-                        <p><strong>Interests:</strong> {tripData.interests.join(", ")}</p>
-                    </div>
-                    <div className="info-right">
-                        <p><strong>Start Date:</strong> {formatDate(tripData.startDate)}</p>
-                        <p><strong>End Date:</strong> {formatDate(tripData.endDate)}</p>
-                        {tripData.notes && <p><strong>Notes:</strong> {tripData.notes}</p>}
-                    </div>
-                </div>
-                <div className="map-container">
-                    <Map location={tripData.location} />
-                </div>
-                <button
-                    onClick={handleDelete}
-                    className="classic-btn"
-                    disabled={isDeleting}
-                >
-                    {isDeleting ? "Deleting..." : "Delete Trip"}
-                </button>
-            </div>
+            <h4><strong>Trip Type:</strong> {tripData.tripType}</h4>
+            <h4><strong>Group Size:</strong> {tripData.groupSize || 0}</h4>
+            <h4><strong>Location:</strong> {tripData.location}</h4>
+            <h4><strong>Interests:</strong> {tripData.interests.join(", ")}</h4>
+            <h4><strong>Start Date:</strong> {formatDate(tripData.startDate)}</h4>
+            <h4><strong>End Date:</strong> {formatDate(tripData.endDate)}</h4>
+            {tripData.notes && <h4><strong>Notes:</strong> {tripData.notes}</h4>}
+            <Map location={tripData.location}/>
+            <button
+                onClick={handleDelete}
+                className="classic-btn"
+                disabled={isDeleting}
+            >
+                {isDeleting ? "Deleting..." : "Delete Trip"}
+            </button>
         </div>
     );
 }
