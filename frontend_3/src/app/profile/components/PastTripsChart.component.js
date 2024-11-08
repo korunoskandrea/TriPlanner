@@ -38,8 +38,8 @@ export function PastTripsChart({ trips }) {
         datasets: [{
             label: 'Past Trips Count',
             data: tripCountByMonth,
-            backgroundColor: '#c84b31',
-            borderColor: '#2d4263',
+            backgroundColor: '#697565',
+            borderColor: '#697565',
         }],
     };
 

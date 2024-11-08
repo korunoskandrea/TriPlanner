@@ -8,8 +8,8 @@ import {Typewriter} from "react-simple-typewriter";
 
 export default function Register() {
     return (
-        <div>
-            <Navbar/>
+        <div className="page-container">
+            <Navbar className="navbar-left"/>
             <div className="auth-page-reg">
                 <div className="content-container-reg">
                     <h2>

@@ -37,8 +37,8 @@ export function UpcomingTripsChart({trips}) {
         datasets: [{
             label: 'Upcoming Trips Count',
             data: tripCountByMonth,
-            backgroundColor: '#c84b31',
-            borderColor: '#2d4263',
+            backgroundColor: '#697565',
+            borderColor: '#697565',
         }],
     };
 

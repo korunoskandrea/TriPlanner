@@ -2,8 +2,10 @@ import axios from "axios";
 import PlanForm from "@/app/trip/plan/components/PlanForm.component";
 import Navbar from "@/app/common/components/Navbar.component";
 import React from "react";
+import {useRouter} from "next/navigation";
 
 export function PlanPage() {
+    const router = useRouter();
     const handlePlan = async (event) => {
         try {
             const token = localStorage.getItem("token");
@@ -31,10 +33,8 @@ export function PlanPage() {
                     }
                 }
             );
+            router.push(`/trip/info?id=${response.data._id}`);
 
-            const tripId = response.data._id;
-
-            window.location.href = `/trip/info?id=${tripId}`;
         } catch (error) {
             console.error("Error creating trip:", error);
         }

@@ -4,6 +4,7 @@ import LocationInput from "@/app/common/components/LocationInput.component";
 import InterestSelector from "@/app/common/components/InterestSelector.component";
 import DatePicker from "@/app/common/components/DatePicker.component";
 import InputField from "@/app/common/components/InputField.component";
+import {useRouter} from "next/navigation";
 
 export default function PlanForm({ onSubmit }) {
     const [tripType, setTripType] = useState('alone');
@@ -13,13 +14,14 @@ export default function PlanForm({ onSubmit }) {
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
     const [notes, setNotes] = useState('');
+    const router = useRouter();
 
     const handlePlan = (event) => {
         event.preventDefault();
         if (new Date(startDate) >= new Date(endDate)) {
             alert("Incorrect date period");
             return;
-        }
+        } //todo ne redirecta
         onSubmit({
             tripType: tripType,
             groupSize: groupSize,
@@ -34,10 +36,7 @@ export default function PlanForm({ onSubmit }) {
     return (
         <form onSubmit={handlePlan} className="plan-form">
             <h2 className="form-title">Plan Your Trip</h2>
-
-            {/* Trip Details Section */}
             <div className="form-section">
-                <h3>Trip Details</h3>
                 <div className="form-row">
                     <TripTypeSelectorComponent
                         tripType={tripType}
@@ -48,9 +47,7 @@ export default function PlanForm({ onSubmit }) {
                 </div>
             </div>
 
-            {/* Location & Interests Section */}
             <div className="form-section">
-                <h3>Location & Interests</h3>
                 <div className="form-row">
                     <LocationInput
                         onLocationChange={setLocation}
@@ -67,9 +64,7 @@ export default function PlanForm({ onSubmit }) {
                 </div>
             </div>
 
-            {/* Dates & Notes Section */}
             <div className="form-section">
-                <h3>Dates & Notes</h3>
                 <div className="form-row">
                     <DatePicker
                         startDate={startDate}
@@ -85,10 +80,7 @@ export default function PlanForm({ onSubmit }) {
                     />
                 </div>
             </div>
-
-            <div className="form-footer">
-                <button type="submit" className="classic-btn">Info for the Trip</button>
-            </div>
+             <button type="submit" className="classic-btn">Info for the Trip</button>
         </form>
     );
 }

@@ -44,13 +44,7 @@ export default function TripCard({ tripData, onDeleteSuccess }) {
 
     return (
         <div className="trip-card">
-            <div className="card-body">
-                <h2 className="card-title">
-                    {isPastEvent ? "Past Event" : "Upcoming Event"}
-                </h2>
-                <div className="map-container">
                     <Map location={tripData.location}/>
-                </div>
                 <div className="card-info">
                     <div className="info-left">
                         <p><strong>Trip Type:</strong> {tripData.tripType}</p>
@@ -72,7 +66,6 @@ export default function TripCard({ tripData, onDeleteSuccess }) {
                 >
                     {isDeleting ? "Deleting..." : "Delete Trip"}
                 </button>
-            </div>
         </div>
     );
 }

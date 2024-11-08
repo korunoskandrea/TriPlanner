@@ -14,9 +14,9 @@ export default function UserProfile() {
         }
     }, []);
     return (
-        <>
-            <Navbar/>
+        <div className="page-container">
+            <Navbar className="navbar-left"/>
             <ProfilePage/>
-        </>
+        </div>
     )
 }

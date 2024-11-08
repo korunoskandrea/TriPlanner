@@ -44,20 +44,14 @@ export default function Navbar() {
         router.push("/trip/plan");
     };
 
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
 
     return (
         <nav className="navbar">
             <div className="navbar-container">
                 <div className="logo">
-                    <Image src="/assets/travel-around-the-world.png"  width={50} height={50} alt="Travel Logo" />
-                    <h3 className="navbar-title">TriPlanner</h3>
+                    <Image src="/assets/travel-around-the-world.png" className="logo" onClick={handleToHome} width={50} height={50} alt="Travel Logo" />
+                    <h3 className="navbar-title" onClick={handleToHome} >TriPlanner</h3>
                 </div>
-                <button className="menu-toggle" onClick={toggleMenu}>
-                    <span className="menu-icon"></span>
-                </button>
                 <ul className={`nav-links ${isMenuOpen ? "open" : ""}`}>
                     {currentPath === "/login" ? (
                         <>

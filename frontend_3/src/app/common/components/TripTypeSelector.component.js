@@ -10,7 +10,7 @@ export default function TripTypeSelectorComponent({tripType, groupSize, onTripTy
             </select>
 
             {tripType === 'group' && (
-                <div className="group-size-container">
+                <div>
                     <label className="group-size-label">How many people are travelling (including you)?</label>
                     <input
                         type="number"

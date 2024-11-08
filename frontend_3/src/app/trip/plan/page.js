@@ -15,9 +15,9 @@ export default function PlanTrip() {
     }, []);
 
   return (
-      <>
-          <Navbar/>
+      <div className="page-container">
+          <Navbar className="navbar-left"/>
           <PlanPage/>
-      </>
+      </div>
   );
 }

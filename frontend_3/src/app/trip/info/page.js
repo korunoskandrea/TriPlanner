@@ -14,9 +14,9 @@ export default function InfoPage() {
     }, []);
 
     return (
-        <>
-            <Navbar/>
+        <div className="page-container">
+            <Navbar className="navbar-left"/>
             <InfoCard/>
-        </>
+        </div>
     );
 }
