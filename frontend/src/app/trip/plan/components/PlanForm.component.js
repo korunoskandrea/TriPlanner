@@ -4,6 +4,7 @@ import LocationInput from "@/app/common/components/LocationInput.component";
 import InterestSelector from "@/app/common/components/InterestSelector.component";
 import DatePicker from "@/app/common/components/DatePicker.component";
 import InputField from "@/app/common/components/InputField.component";
+import {useRouter} from "next/navigation";
 
 export default function PlanForm({onSubmit}) {
     const [tripType, setTripType] = useState('alone');
@@ -13,6 +14,7 @@ export default function PlanForm({onSubmit}) {
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
     const [notes, setNotes] = useState('');
+    const router = useRouter();
 
     const handlePlan = (event) => {
         event.preventDefault();
