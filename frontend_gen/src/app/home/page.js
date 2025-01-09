@@ -25,7 +25,6 @@ export default function homePage() {
             <NavButtonRenderElement navigation={'/'} nav_label={'ndcjdscnds'} width={10} height={10} text_color={'white'} bg_color={'red'} hoverEffects={'true'} fontFamily={null} fontSize={null}/>
             TEXT ELEMENThuge      <TextRenderElement text={'dsvsvds'} fontFamily={'Arial'} fontSize={null} position={null}/>
             <TitleRenderElement title={'sdvsdv'} />
-            <DropDownRenderElement label={'interests'} searchable={false} listElement={null}/>
             <InputFieldRenderElement type={'string'} label={'Password'} isObscured={null}/>
         </div>
     );
